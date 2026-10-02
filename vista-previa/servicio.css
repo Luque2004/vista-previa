@@ -1,0 +1,348 @@
+/* ===== HERO: foto a todo el ancho con el texto encima ===== */
+#hero-container{
+    min-height: max(540px, 50vh);      /* nunca menos de 540px, aunque la pantalla sea bajita */
+    background:
+        linear-gradient(to top, rgba(46,42,38,.82), rgba(46,42,38,.1) 65%),   /* capa de arriba: oscurece para que se lea el texto */
+        url("img/placeholder.svg") center / cover no-repeat;                  /* capa de abajo: la foto, siempre llenando el hueco */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;         /* el texto pegado abajo */
+    padding-block: 56px;
+    /* El fondo va a todo el ancho, pero el texto se alinea con el logo del header (máx. 1280px) */
+    padding-inline: max(clamp(16px, 5vw, 64px), calc((100% - 1280px) / 2 + 64px));
+    color: #FAF7F2;
+}
+#hero-container>*{
+    max-width: 820px;
+}
+
+/* Separaciones: poco espacio dentro de un grupo, más entre grupos
+   (etiqueta + título juntos · texto · botón aparte) */
+#hero-container h1{ margin-top: 14px; }
+#hero-container .intro{ margin-top: 20px; }
+#hero-container .presupuesto{ margin-top: 32px; }
+
+/* Textos en tonos claros para que se lean sobre la foto oscurecida */
+#hero-container .etiqueta{
+    color: #F2E8D5;
+}
+#hero-container h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 68px;
+    font-weight: 600;
+    line-height: 1;
+}
+#hero-container h1 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #F2B48F;                    /* el teja de la portada no se lee sobre oscuro: versión melocotón */
+}
+#hero-container .intro{
+    color: #F2E8D5;
+}
+#hero-container .presupuesto>a{
+    min-height: 50px;
+    padding-inline: 30px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+/* ===== OPCIONES: las dos formas de alquilar el local ===== */
+#opciones-wrapper{
+    max-width: 1280px;                 /* a diferencia del hero, no va a todo el ancho */
+    margin-inline: auto;
+    padding-inline: clamp(16px, 5vw, 64px);
+    padding-block: 64px;
+}
+#opciones-wrapper h2{
+    margin-top: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.05;
+}
+#opciones-wrapper h2 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+#opciones-lista{
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+}
+.opcion{
+    flex: 1;                           /* las dos tarjetas igual de anchas */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 36px;
+    background-color: #F1EBE1;
+}
+.opcion h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.05;
+}
+.opcion>p{
+    font-size: 15px;
+    line-height: 1.55;
+    color: #5E554D;
+}
+.opcion ul{
+    padding: 0;                        /* el navegador pone sangría a las listas por defecto */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+}
+.opcion li::before{
+    content: "✓";                     /* con CSS el lector de pantalla no lo lee en cada línea */
+    margin-right: 8px;
+    color: #2F4A6B;
+    font-weight: 600;
+}
+.opcion .precio{
+    margin-top: auto;                  /* empuja precio y botón al fondo: quedan alineados en las dos tarjetas */
+    font-size: 14px;
+}
+.opcion .presupuesto{
+    padding-top: 6px;
+}
+.opcion .insignia{                     /* con .opcion delante gana a .opcion>p, que la pintaba de gris */
+    background-color: #A3542E;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+}
+/* ===== GALERÍA: tres fotos en fila ===== */
+#galeria{
+    max-width: 1280px;                 /* mismo ancho y márgenes que las opciones */
+    margin-inline: auto;
+    padding-inline: clamp(16px, 5vw, 64px);
+    padding-bottom: 64px;
+    display: flex;
+    gap: 16px;
+}
+.imagen-con-texto{
+    flex: 1;                           /* las tres igual de anchas, sin medidas fijas */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.imagen-con-texto>img{
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;                 /* llena el hueco recortando, sin deformar la foto */
+}
+.texto-imagen{
+    font-size: 14px;
+    color: #5E554D;
+}
+.texto-imagen:empty{
+    display: none;                     /* si el pie de foto está vacío, no ocupa sitio */
+}
+
+/* ===== FRANJA FINAL: "¿Hablamos de tu reunión?" ===== */
+#cta{
+    background-color: #F1EBE1;         /* el fondo a todo el ancho… */
+    padding-block: 56px;
+    /* …y el contenido alineado con el logo, como en el hero */
+    padding-inline: max(clamp(16px, 5vw, 64px), calc((100% - 1280px) / 2 + 64px));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+#cta h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.05;
+}
+#cta h2 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+#cta p{
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: #5E554D;
+}
+#cta-botones{
+    display: flex;
+    gap: 16px;
+    padding: 0;
+}
+/* Los dos botones del mismo tamaño; el de presupuesto coge el color de .presupuesto (style.css) */
+#cta-botones a{
+    min-height: 50px;
+    padding-inline: 30px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+/* "Llamar": botón secundario, solo con el borde */
+.llamar>a{
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid #2F4A6B;
+    color: #2F4A6B;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* ===== PANTALLAS GRANDES (1920) ===== */
+@media (min-width: 1920px){
+    /* En style.css el header pasa a 1600px de ancho: el texto del hero lo sigue */
+    #hero-container{
+        padding-inline: calc((100% - 1600px) / 2 + 64px);
+    }
+    #hero-container h1{
+        font-size: 88px;
+    }
+    #hero-container .presupuesto>a{
+        min-height: 58px;
+        padding-inline: 36px;
+        font-size: 15px;
+    }
+    #opciones-wrapper,
+    #galeria{
+        max-width: 1600px;
+    }
+    .imagen-con-texto>img{
+        height: 340px;
+    }
+    #cta{
+        padding-inline: calc((100% - 1600px) / 2 + 64px);
+    }
+    #cta h2{
+        font-size: 48px;
+    }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1023px){
+    #opciones-wrapper{
+        padding-block: 48px;
+    }
+    #opciones-wrapper h2{
+        font-size: 38px;
+    }
+    #opciones-lista{
+        gap: 16px;
+    }
+    .opcion{
+        padding: 28px;
+    }
+    .opcion h3{
+        font-size: 30px;
+    }
+    /* Galería en mini mosaico (tablet y móvil): la primera foto a todo el ancho
+       y las otras dos debajo, lado a lado. Se ven las tres sin deslizar */
+    #galeria{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding-bottom: 48px;
+    }
+    .imagen-con-texto:first-child{
+        grid-column: span 2;           /* ocupa las dos columnas */
+    }
+    .imagen-con-texto>img{
+        height: 220px;
+    }
+    .imagen-con-texto:first-child>img{
+        height: 320px;
+    }
+    #cta{
+        padding-block: 48px;
+    }
+    #cta h2{
+        font-size: 34px;
+    }
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 767px){
+    #hero-container{
+        min-height: 460px;
+        padding-block: 40px;
+        /* En móvil el texto ocupa casi todo el alto: el degradado oscurece más y llega más arriba */
+        background-image:
+            linear-gradient(to top, rgba(46,42,38,.88), rgba(46,42,38,.45)),
+            url("img/placeholder.svg");
+    }
+    #hero-container h1{
+        font-size: 44px;
+        line-height: 1.02;
+    }
+    #hero-container .intro{
+        font-size: 16px;
+    }
+    #opciones-wrapper{
+        padding-block: 48px 56px;
+    }
+    #opciones-wrapper h2{
+        font-size: 32px;
+    }
+    #opciones-lista{
+        flex-direction: column;        /* una tarjeta debajo de otra */
+        margin-top: 24px;
+    }
+    .opcion{
+        padding: 24px;
+    }
+    .opcion h3{
+        font-size: 28px;
+    }
+    /* Botón a todo el ancho de la tarjeta: más fácil de pulsar con el dedo */
+    .opcion .presupuesto{
+        align-self: stretch;
+    }
+    .opcion .presupuesto>a{
+        display: flex;
+        justify-content: center;
+        min-height: 52px;
+    }
+
+    /* Mini mosaico (viene de tablet): solo cambian el hueco y las alturas */
+    #galeria{
+        gap: 10px;
+        padding-bottom: 56px;
+    }
+    .imagen-con-texto>img{
+        height: 140px;
+    }
+    .imagen-con-texto:first-child>img{
+        height: 200px;
+    }
+
+    /* Franja final: el texto arriba y los botones debajo, a todo el ancho */
+    #cta{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        padding-block: 40px 48px;
+    }
+    #cta h2{
+        font-size: 32px;
+    }
+    #cta-botones{
+        flex-direction: column;
+        gap: 12px;
+    }
+    #cta-botones a{
+        display: flex;
+        justify-content: center;
+        min-height: 52px;
+    }
+}

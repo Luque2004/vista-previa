@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Alquiler del local · Miriam Rose, Canovelles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="servicio.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="aguayo" aria-hidden="true"></div>
+    <header>
+        <div id="header-wrapper">
+
+            <a href="index.html" id="logo">Miriam Rose</a>
+            <!-- Hamburguesa: solo se ve en tablet y móvil (ver main.js) -->
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <div id="header-nav-wrapper">
+                <nav id="menu">
+                    <ul role="list">
+                        <li><a href="#">Cómo lo hacemos</a></li>
+                        <li class="submenu">
+                            <!-- Botón (no enlace): abre y cierra la lista de servicios (ver main.js) -->
+                            <button class="submenu-toggle" aria-expanded="false" aria-controls="submenu-servicios">Servicios</button>
+                            <ul id="submenu-servicios" role="list">
+                                <li><a href="local.html" aria-current="page">Nuestro local</a></li>
+                                <li><a href="#">Foodtruck</a></li>
+                                <li><a href="#">Catering</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nuestra carta</a></li>
+                        <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="main-wrapper-local">
+            <div id="hero-container">
+                <p class="etiqueta">Alquiler del local</p>
+                <h1>Reúnete en <em>nuestro</em> local</h1>
+                <p class="intro">Un espacio acogedor para hasta 40 personas: meriendas, reuniones de empresa y celebraciones tranquilas. Con nuestras empanadas y refrescos bolivianos, o solo el espacio.</p>
+                <p class="presupuesto"><a href="#">Pide presupuesto</a></p>
+            </div>
+        </div>
+        <section id="opciones-wrapper">
+            <p class="etiqueta">Opciones</p>
+            <h2>Elige cómo <em>quieres</em> tu reunión</h2>
+            <div id="opciones-lista">
+                <article class="opcion">
+                    <h3>Solo el espacio</h3>
+                    <p>Para tu reunión o merienda, tú pones el resto.</p>
+                    <ul>
+                        <li>Hasta 40 personas</li>
+                        <li>Música ambiente</li>
+                        <li>Mesas y sillas montadas</li>
+                    </ul>
+                    <p class="precio">Precio: consultar</p>
+                    <p class="presupuesto"><a href="#">Pedir esta opción</a></p>
+                </article>
+                <article class="opcion">
+                    <p class="insignia">La más pedida</p>
+                    <h3>Espacio + merienda</h3>
+                    <p>El local y nuestra comida boliviana, sin preocuparte de nada.</p>
+                    <ul>
+                        <li>Todo lo de "Solo el espacio"</li>
+                        <li>Empanadas, salteñas y cuñapés</li>
+                        <li>Refrescos bolivianos y café</li>
+                    </ul>
+                    <p class="precio">Precio: consultar</p>
+                    <p class="presupuesto"><a href="#">Pedir esta opción</a></p>
+                </article>
+            </div>
+        </section>
+        <section id="galeria">
+            <div class="imagen-con-texto">
+                <img src="img/placeholder.svg" alt="">
+                <p class="texto-imagen"></p>
+            </div>
+              <div class="imagen-con-texto">
+                <img src="img/placeholder.svg" alt="">
+                <p class="texto-imagen"></p>
+            </div>
+              <div class="imagen-con-texto">
+                <img src="img/placeholder.svg" alt="">
+                <p class="texto-imagen"></p>
+            </div>
+        </section>
+        <section id="cta">
+            <div>
+                <h2>¿Hablamos de tu <em>reunión</em>?</h2>
+                <p>Cuéntanos la fecha y cuántos seréis, y te enviamos presupuesto sin compromiso.</p>
+            </div>
+            <div>
+                <ul id="cta-botones">
+                    <li class="llamar"><a href="tel:+34605470387">Llamar</a></li>
+                    <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <div class="aguayo" aria-hidden="true"></div>
+    <footer>
+        <div id="footer-wrapper">
+            <div id="footer-container-0">
+                <div id="sobre-nosotros">
+                    <p class="footer-marca">Miriam Rose</p>
+                    <p>Empanadas y refrescos bolivianos con recetas de familia y horno propio.</p>
+                </div>
+                <div id="donde-estamos">
+                    <h2>Dónde estamos</h2>
+                    <address>Carrer Riera, 1<br>08420 Canovelles (Barcelona)</address>
+                    <dl class="horario">
+                        <dt>Lunes</dt>
+                        <dd><span>6:30–14:00</span></dd>
+                        <dt>Martes a viernes</dt>
+                        <dd><span>6:30–14:00</span> y <span>17:00–21:00</span></dd>
+                        <dt>Sábado y domingo</dt>
+                        <dd><span>6:30–13:30</span></dd>
+                    </dl>
+                </div>
+                <div id="contacto">
+                    <h2>Contacto</h2>
+                    <p>
+                        <a href="tel:+34605470387" class="con-icono"><img src="img/iconos/telefono.svg" alt="">605 47 03 87</a><br>
+                        <a href="mailto:miriamrosecafeteria@gmail.com" class="con-icono"><img src="img/iconos/correo.svg" alt="">miriamrosecafeteria@gmail.com</a><br>
+                        <a href="https://www.instagram.com/cafeteriamiriamrose/" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/instagram.svg" alt="Instagram:">@cafeteriamiriamrose</a><br>
+                        <a href="https://www.tiktok.com/@cafeteriamiriamrose" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/tiktok.svg" alt="TikTok:">@cafeteriamiriamrose</a>
+                    </p>
+                    <p class="presupuesto"><a href="#">Pide presupuesto</a></p>
+                </div>
+                <div id="mapa">
+                    <!-- Toda la columna es un solo enlace: la imagen y el texto llevan a Google Maps -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cafeteria%20Miriam%20Rose%2C%20Carrer%20Riera%201%2C%20Canovelles" target="_blank" rel="noopener">
+                        <img src="img/mapa-provisional.svg" alt="Mapa de la zona de la cafetería">
+                        Cómo llegar →
+                    </a>
+                </div>
+            </div>
+            <div id="copyright-container">
+                <small>&copy; 2026 Cafetería Miriam Rose</small>
+                <ul role="list">
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
