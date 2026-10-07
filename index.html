@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Miriam Rose · Empanadas bolivianas en Canovelles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Pinyon+Script&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="aguayo" aria-hidden="true"></div>
+    <header>
+        <div id="header-wrapper">
+
+            <a href="index.html" id="logo">Miriam Rose</a>
+            <!-- Hamburguesa: solo se ve en tablet y móvil (ver main.js) -->
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <div id="header-nav-wrapper">
+                <nav id="menu">
+                    <ul role="list">
+                        <li><a href="#">Cómo lo hacemos</a></li>
+                        <li class="submenu">
+                            <!-- Botón (no enlace): abre y cierra la lista de servicios (ver main.js) -->
+                            <button class="submenu-toggle" aria-expanded="false" aria-controls="submenu-servicios">Servicios</button>
+                            <ul id="submenu-servicios" role="list">
+                                <li><a href="local.html">Nuestro local</a></li>
+                                <li><a href="#">Foodtruck</a></li>
+                                <li><a href="#">Catering</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="carta.html">Nuestra carta</a></li>
+                        <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="main-wrapper">
+            <div id="main-container-0">
+                <div>
+                    <p class="etiqueta">Recetas familiares · Horno propio</p>
+                    <h1>Empanadas <em>bolivianas</em>, hechas a mano</h1>
+                </div>
+                <div> 
+                    <p class="intro">Recetas de familia, horno propio y refrescos bolivianos. Reúne a los tuyos en nuestro local o lleva nuestra cocina a tu evento con el foodtruck.</p>
+                    <ul>
+                        <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                        <li class="enlace-servicios"><a href="">Ver servicios →</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mosaico" tabindex="0" role="region" aria-label="Fotos de la cafetería">
+                <img src="img/placeholder.svg" alt="Empanadas recién hechas" class="foto-grande">
+                <img src="img/placeholder.svg" alt="El horno de la cafetería">
+                <img src="img/placeholder.svg" alt="Refrescos bolivianos">
+                <img src="img/placeholder.svg" alt="El foodtruck" class="foto-alargada">
+            </div>
+            <!-- Puntos del carrusel: solo en móvil, los crea main.js -->
+            <div id="puntos-mosaico" class="puntos"></div>
+            <div id="main-container-01">
+                <div class="tarjeta">
+                    <img src="img/iconos/local.svg" alt="">
+                    <div class="tarjeta-texto">
+                        <h2>Nuestro local</h2>
+                        <p>Meriendas y reuniones, hasta 40 personas.</p>
+                        <a href="local.html">Consultar →</a>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="img/iconos/foodtruck.svg" alt="">
+                    <div class="tarjeta-texto">
+                        <h2>Foodtruck</h2>
+                        <p>Para empresas y eventos, con o sin comida.</p>
+                        <a href="#contacto">Ver el foodtruck →</a>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="img/iconos/catering.svg" alt="">
+                    <div class="tarjeta-texto">
+                        <h2>Catering boliviano</h2>
+                        <p>Empanadas y refrescos en tu evento.</p>
+                        <a href="#contacto">Pedir catering →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <div class="aguayo" aria-hidden="true"></div>
+    <footer>
+        <div id="footer-wrapper">
+            <div id="footer-container-0">
+                <div id="sobre-nosotros">
+                    <p class="footer-marca">Miriam Rose</p>
+                    <p>Empanadas y refrescos bolivianos con recetas de familia y horno propio.</p>
+                </div>
+                <div id="donde-estamos">
+                    <h2>Dónde estamos</h2>
+                    <address>Carrer Riera, 1<br>08420 Canovelles (Barcelona)</address>
+                    <dl class="horario">
+                        <dt>Lunes</dt>
+                        <dd><span>6:30–14:00</span></dd>
+                        <dt>Martes a viernes</dt>
+                        <dd><span>6:30–14:00</span> y <span>17:00–21:00</span></dd>
+                        <dt>Sábado y domingo</dt>
+                        <dd><span>6:30–13:30</span></dd>
+                    </dl>
+                </div>
+                <div id="contacto">
+                    <h2>Contacto</h2>
+                    <p>
+                        <a href="tel:+34605470387" class="con-icono"><img src="img/iconos/telefono.svg" alt="">605 47 03 87</a><br>
+                        <a href="mailto:miriamrosecafeteria@gmail.com" class="con-icono"><img src="img/iconos/correo.svg" alt="">miriamrosecafeteria@gmail.com</a><br>
+                        <a href="https://www.instagram.com/cafeteriamiriamrose/" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/instagram.svg" alt="Instagram:">@cafeteriamiriamrose</a><br>
+                        <a href="https://www.tiktok.com/@cafeteriamiriamrose" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/tiktok.svg" alt="TikTok:">@cafeteriamiriamrose</a>
+                    </p>
+                    <p class="presupuesto"><a href="#">Pide presupuesto</a></p>
+                </div>
+                <div id="mapa">
+                    <!-- Toda la columna es un solo enlace: la imagen y el texto llevan a Google Maps -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cafeteria%20Miriam%20Rose%2C%20Carrer%20Riera%201%2C%20Canovelles" target="_blank" rel="noopener">
+                        <img src="img/mapa-provisional.svg" alt="Mapa de la zona de la cafetería">
+                        Cómo llegar →
+                    </a>
+                </div>
+            </div>
+            <div id="copyright-container">
+                <small>&copy; 2026 Cafetería Miriam Rose</small>
+                <ul role="list">
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
