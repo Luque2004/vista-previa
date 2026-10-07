@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Nuestra carta · Miriam Rose, Canovelles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Pinyon+Script&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="servicio.css">
+    <link rel="stylesheet" href="carta.css">
+    <script src="main.js" defer></script>
+    <script src="carta.js" defer></script>
+</head>
+<body>
+    <div class="aguayo" aria-hidden="true"></div>
+    <header>
+        <div id="header-wrapper">
+
+            <a href="index.html" id="logo">Miriam Rose</a>
+            <!-- Hamburguesa: solo se ve en tablet y móvil (ver main.js) -->
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <div id="header-nav-wrapper">
+                <nav id="menu">
+                    <ul role="list">
+                        <li><a href="#">Cómo lo hacemos</a></li>
+                        <li class="submenu">
+                            <!-- Botón (no enlace): abre y cierra la lista de servicios (ver main.js) -->
+                            <button class="submenu-toggle" aria-expanded="false" aria-controls="submenu-servicios">Servicios</button>
+                            <ul id="submenu-servicios" role="list">
+                                <li><a href="local.html">Nuestro local</a></li>
+                                <li><a href="#">Foodtruck</a></li>
+                                <li><a href="#">Catering</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="carta.html" aria-current="page">Nuestra carta</a></li>
+                        <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="carta-fondo">
+            <div id="carta-wrapper">
+                <div id="carta-cabecera">
+                    <p class="etiqueta">Nuestra carta</p>
+                    <h1>Sabores de <em>Bolivia</em>, hechos aquí</h1>
+                    <p class="intro">Salteñas y empanadas con recetas de familia, bollería, pan, refrescos bolivianos y café.</p>
+                </div>
+
+                <!-- Carta real del cliente (07/10). Los "x,xx €" son productos sin precio todavía: pedírselo al cliente -->
+                <!-- Recomendados: un grupo por filtro; carta.js enseña el del botón pulsado (sin JavaScript se ve el de "todo") -->
+                <section id="imprescindibles" aria-label="Recomendados">
+                    <div class="recomendados-grupo" data-categoria="todo">
+                        <p class="etiqueta">Si es tu primera vez</p>
+                        <h2>Los <em>imprescindibles</em></h2>
+                        <div class="imprescindibles-lista">
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Salteña</h3>
+                                        <p class="precio">2,85 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Masa dorada con un guiso jugoso por dentro.</p>
+                                </div>
+                            </article>
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Cuñapé</h3>
+                                        <p class="precio">1,80 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Crujiente por fuera y tierno por dentro.</p>
+                                </div>
+                            </article>
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Mocochinchi</h3>
+                                        <p class="precio">1,95 €</p>
+                                    </div>
+                                    <p class="destacado-desc">El refresco más típico de Bolivia.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="recomendados-grupo" data-categoria="empanadas" hidden>
+                        <p class="etiqueta">Recomendados</p>
+                        <h2>Nuestras mejores <em>empanadas</em></h2>
+                        <div class="imprescindibles-lista">
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Empanada de queso</h3>
+                                        <p class="precio">2,00 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Frita, dorada y con queso fundido por dentro.</p>
+                                </div>
+                            </article>
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Cuñapé</h3>
+                                        <p class="precio">1,80 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Crujiente por fuera y tierno por dentro.</p>
+                                </div>
+                            </article>
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Salteña</h3>
+                                        <p class="precio">2,85 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Masa dorada con un guiso jugoso por dentro.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="recomendados-grupo" data-categoria="bolleria" hidden>
+                        <p class="etiqueta">Recomendado</p>
+                        <h2>Para acompañar el <em>café</em></h2>
+                        <div class="imprescindibles-lista">
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Cruasán bikini</h3>
+                                        <p class="precio">x,xx €</p>
+                                    </div>
+                                    <p class="destacado-desc">Cruasán curvo con jamón dulce y queso, a la plancha.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="recomendados-grupo" data-categoria="pan" hidden>
+                        <p class="etiqueta">Recomendado</p>
+                        <h2>Nuestro <em>pan</em> favorito</h2>
+                        <div class="imprescindibles-lista">
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Campesina</h3>
+                                        <p class="precio">1,10 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Pan rústico de corteza crujiente.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="recomendados-grupo" data-categoria="bebidas" hidden>
+                        <p class="etiqueta">Recomendados</p>
+                        <h2>Nuestras <em>bebidas</em></h2>
+                        <div class="imprescindibles-lista">
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Api</h3>
+                                        <p class="precio">2,90 €</p>
+                                    </div>
+                                    <p class="destacado-desc">Bebida caliente de maíz morado.</p>
+                                </div>
+                            </article>
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Mocochinchi</h3>
+                                        <p class="precio">1,95 €</p>
+                                    </div>
+                                    <p class="destacado-desc">El refresco más típico de Bolivia.</p>
+                                </div>
+                            </article>
+                            <article class="destacado">
+                                <img src="img/placeholder.svg" alt="">
+                                <div class="destacado-texto">
+                                    <div class="destacado-linea">
+                                        <h3>Viatzen</h3>
+                                        <p class="precio">3,25 €</p>
+                                    </div>
+                                    <!-- Falta la descripción: preguntar al cliente qué lleva -->
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="toda-la-carta" aria-labelledby="titulo-carta">
+                    <h2 id="titulo-carta">Toda la <em>carta</em></h2>
+
+                    <!-- Filtros: van ocultos (hidden); el JavaScript los enseña y filtra las secciones -->
+                    <div class="filtros" role="group" aria-label="Filtrar la carta por sección" hidden>
+                        <button type="button" data-filtro="todo" aria-pressed="true">Todo</button>
+                        <button type="button" data-filtro="empanadas" aria-pressed="false">Empanadas</button>
+                        <button type="button" data-filtro="bolleria" aria-pressed="false">Bollería</button>
+                        <button type="button" data-filtro="pan" aria-pressed="false">Pan</button>
+                        <button type="button" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
+                    </div>
+
+                    <div class="papel">
+                        <div class="aguayo" aria-hidden="true"></div>
+                        <div class="papel-cabecera">
+                            <p class="papel-marca">Miriam Rose</p>
+                            <p class="papel-sub">Cafetería boliviana · Canovelles</p>
+                        </div>
+
+                        <section class="carta-seccion" data-categoria="empanadas" aria-labelledby="titulo-empanadas">
+                            <h3 id="titulo-empanadas">Empanadas</h3>
+                            <p class="carta-sub">Salteñas, empanadas y especialidades bolivianas</p>
+                            <h4>Empanadas</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Salteña</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,85 €</span></p>
+                                    <p class="producto-desc">Rellena de un guiso jugoso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Empanada de queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,00 €</span></p>
+                                    <p class="producto-desc">Frita, dorada y con queso fundido por dentro.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Empanada al horno</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,00 €</span></p>
+                                    <p class="producto-desc">Hay tres: de queso, de queso con dulce por encima y de queso con cebolla.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Empanada de arroz</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,85 €</span></p>
+                                    <p class="producto-desc">Con masa de harina de arroz y relleno de queso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Empanada de jigote</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,85 €</span></p>
+                                    <p class="producto-desc">Rellena de pollo guisado.</p>
+                                </li>
+                            </ul>
+                            <h4>Especialidades bolivianas</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cuñapé</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                    <p class="producto-desc">Panecillo de queso y almidón de yuca.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Mini cuñapé abizcochado</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                    <p class="producto-desc">Cuñapé pequeño y esponjoso, como un bizcocho.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Pan royal</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                    <p class="producto-desc">Pan dulce boliviano, suave y esponjoso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Roscas de queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,70 €</span></p>
+                                    <p class="producto-desc">Rosquitas bolivianas hechas con queso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Tamales</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">4,00 €</span></p>
+                                    <p class="producto-desc">Masa de maíz rellena y cocida en hoja de mazorca. Solo por temporada.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="carta-seccion" data-categoria="bolleria" aria-labelledby="titulo-bolleria">
+                            <h3 id="titulo-bolleria">Bollería</h3>
+                            <p class="carta-sub">Para acompañar el café</p>
+                            <h4>Cruasanes</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán bikini</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Cruasán curvo con jamón dulce y queso, a la plancha.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán de jamón dulce y queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Relleno de jamón dulce y queso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán grande curvo</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,60 €</span></p>
+                                    <p class="producto-desc">El clásico, en forma de media luna y de buen tamaño.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán grande de chocolate</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,60 €</span></p>
+                                    <p class="producto-desc">De chocolate negro o blanco.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán recto</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,10 €</span></p>
+                                    <p class="producto-desc">El clásico, de forma recta.</p>
+                                </li>
+                            </ul>
+                            <h4>Mini cruasanes</h4>
+                            <!-- El cliente habla de una oferta en los minis: preguntar cuál es -->
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Mini cruasán de cereales</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                    <p class="producto-desc">Pequeño, con cereales.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Mini cruasán de mantequilla</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,45 €</span></p>
+                                    <p class="producto-desc">Pequeño, de mantequilla.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Mini cruasán de chocolate</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,45 €</span></p>
+                                    <p class="producto-desc">Pequeño, relleno de chocolate.</p>
+                                </li>
+                            </ul>
+                            <h4>Magdalenas y galletas</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Magdalena</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Esponjosa, para acompañar el café.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Galleta de almendras</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,60 €</span></p>
+                                    <p class="producto-desc">Con trocitos de almendra.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Galleta de chocolate</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                    <p class="producto-desc">Con trocitos de chocolate.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="carta-seccion" data-categoria="pan" aria-labelledby="titulo-pan">
+                            <h3 id="titulo-pan">Pan</h3>
+                            <p class="carta-sub">Para llevar a casa</p>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Campesina</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,10 €</span></p>
+                                    <p class="producto-desc">Pan rústico de corteza crujiente.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Baguette</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,80 €</span></p>
+                                    <p class="producto-desc">Barra fina y crujiente.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Payesa</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,00 €</span></p>
+                                    <p class="producto-desc">Pan de payés, de corteza gruesa y miga densa.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Payesa de cereales</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,50 €</span></p>
+                                    <p class="producto-desc">Pan de payés con cereales y semillas.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Integral</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Pan de harina integral.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="carta-seccion" data-categoria="bebidas" aria-labelledby="titulo-bebidas">
+                            <h3 id="titulo-bebidas">Bebidas</h3>
+                            <p class="carta-sub">Refrescos bolivianos, zumos, café y cerveza</p>
+                            <h4>Bebidas bolivianas y de la casa</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Api</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,90 €</span></p>
+                                    <p class="producto-desc">Bebida caliente de maíz morado.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Mocochinchi</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
+                                    <p class="producto-desc">Refresco de melocotón seco y canela.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Viatzen</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,25 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Limonada</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
+                                    <p class="producto-desc">Fresquita, de limón.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Zumo de naranja</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,00 €</span></p>
+                                    <p class="producto-desc">De naranja exprimida.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Batido</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,90 €</span></p>
+                                    <p class="producto-desc">Frío y cremoso: pregunta por los sabores.</p>
+                                </li>
+                            </ul>
+                            <h4>Refrescos</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Refrescos</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
+                                    <p class="producto-desc">Coca-Cola, Fanta, Nestea, Aquarius, malta, tónica Schweppes, Vichy y zumos Granini (naranja, melocotón y piña).</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cacaolat</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">En botella de vidrio.</p>
+                                </li>
+                            </ul>
+                            <h4>Cafés e infusiones</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Café solo</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,40 €</span></p>
+                                    <p class="producto-desc">Espresso, corto e intenso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cortado</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,50 €</span></p>
+                                    <p class="producto-desc">Café solo con un poco de leche.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Café con leche</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,70 €</span></p>
+                                    <p class="producto-desc">Mitad café, mitad leche caliente.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Americano</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                    <p class="producto-desc">Café solo alargado con agua.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Capuchino</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Café con leche espumosa.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Vaso de leche</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Fría o caliente.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Matcha</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,25 €</span></p>
+                                    <p class="producto-desc">Té verde matcha con leche.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Infusión</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                    <p class="producto-desc">Pregunta por las que tenemos.</p>
+                                </li>
+                            </ul>
+                            <p class="carta-nota">También hay descafeinado (de máquina o de sobre) y leche sin lactosa, de avena, de soja y desnatada.</p>
+                            <h4>Cervezas</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Estrella Damm mediana</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Botellín de 33 cl.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Estrella Damm quinto</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Botellín de 20 cl.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Estrella Galicia</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Cerveza rubia de Galicia.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">San Miguel</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Cerveza rubia clásica.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Voll-Damm</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-desc">Doble malta, con más cuerpo.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <p class="carta-aviso">Precios con IVA incluido. Si tienes alguna alergia o intolerancia, pregúntanos.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Franja final: mismo bloque que en local.html (sus estilos están en servicio.css) -->
+        <section id="cta">
+            <div>
+                <h2>¿Lo quieres para un <em>evento</em>?</h2>
+                <p>Preparamos bandejas de salteñas, empanadas y cuñapés por encargo.</p>
+            </div>
+            <div>
+                <ul id="cta-botones">
+                    <li class="llamar"><a href="#">Ver catering</a></li>
+                    <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <div class="aguayo" aria-hidden="true"></div>
+    <footer>
+        <div id="footer-wrapper">
+            <div id="footer-container-0">
+                <div id="sobre-nosotros">
+                    <p class="footer-marca">Miriam Rose</p>
+                    <p>Empanadas y refrescos bolivianos con recetas de familia y horno propio.</p>
+                </div>
+                <div id="donde-estamos">
+                    <h2>Dónde estamos</h2>
+                    <address>Carrer Riera, 1<br>08420 Canovelles (Barcelona)</address>
+                    <dl class="horario">
+                        <dt>Lunes</dt>
+                        <dd><span>6:30–14:00</span></dd>
+                        <dt>Martes a viernes</dt>
+                        <dd><span>6:30–14:00</span> y <span>17:00–21:00</span></dd>
+                        <dt>Sábado y domingo</dt>
+                        <dd><span>6:30–13:30</span></dd>
+                    </dl>
+                </div>
+                <div id="contacto">
+                    <h2>Contacto</h2>
+                    <p>
+                        <a href="tel:+34605470387" class="con-icono"><img src="img/iconos/telefono.svg" alt="">605 47 03 87</a><br>
+                        <a href="mailto:miriamrosecafeteria@gmail.com" class="con-icono"><img src="img/iconos/correo.svg" alt="">miriamrosecafeteria@gmail.com</a><br>
+                        <a href="https://www.instagram.com/cafeteriamiriamrose/" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/instagram.svg" alt="Instagram:">@cafeteriamiriamrose</a><br>
+                        <a href="https://www.tiktok.com/@cafeteriamiriamrose" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/tiktok.svg" alt="TikTok:">@cafeteriamiriamrose</a>
+                    </p>
+                    <p class="presupuesto"><a href="#">Pide presupuesto</a></p>
+                </div>
+                <div id="mapa">
+                    <!-- Toda la columna es un solo enlace: la imagen y el texto llevan a Google Maps -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cafeteria%20Miriam%20Rose%2C%20Carrer%20Riera%201%2C%20Canovelles" target="_blank" rel="noopener">
+                        <img src="img/mapa-provisional.svg" alt="Mapa de la zona de la cafetería">
+                        Cómo llegar →
+                    </a>
+                </div>
+            </div>
+            <div id="copyright-container">
+                <small>&copy; 2026 Cafetería Miriam Rose</small>
+                <ul role="list">
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

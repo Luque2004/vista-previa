@@ -1,0 +1,397 @@
+/* ===== CARTA (diseño 11): imprescindibles con foto + la carta como una hoja de papel ===== */
+
+#carta-fondo{
+    background-color: #F1EBE1;
+}
+#carta-wrapper{
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 5vw, 64px);
+    padding-block: 56px 80px;
+}
+
+/* ===== CABECERA ===== */
+#carta-cabecera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+#carta-cabecera h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.05;
+}
+#carta-cabecera .intro{
+    max-width: 640px;
+}
+
+#imprescindibles h2,
+#toda-la-carta h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.05;
+    text-align: center;
+}
+#carta-cabecera h1 em,
+#imprescindibles h2 em,
+#toda-la-carta h2 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+
+/* ===== IMPRESCINDIBLES ===== */
+#imprescindibles{
+    margin-top: 48px;
+}
+#imprescindibles .etiqueta{
+    margin-bottom: 12px;
+    text-align: center;
+}
+/* Flex y no grid: si un grupo tiene solo 2 tarjetas, quedan centradas en vez de dejar un hueco a la derecha */
+.imprescindibles-lista{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 28px;
+}
+.destacado{
+    flex: 0 1 calc((100% - 48px) / 3);    /* un tercio del ancho, descontando los 2 huecos de 24px */
+    background-color: #FFFFFF;
+    border: 1px solid #E4DACB;
+    box-shadow: 0 8px 24px rgba(46, 42, 38, 0.06);
+}
+.destacado img{
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+.destacado-texto{
+    padding: 18px 22px 22px;
+}
+.destacado-linea{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+.destacado h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.destacado-desc{
+    margin-top: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #5E554D;
+}
+
+/* ===== TODA LA CARTA ===== */
+#toda-la-carta{
+    margin-top: 72px;
+}
+
+.filtros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+.filtros[hidden]{
+    display: none;                     /* sin esto, el display:flex de arriba ganaría al atributo hidden */
+}
+.filtros button{
+    min-height: 44px;
+    padding-inline: 20px;
+    background-color: #FAF7F2;
+    border: 1.5px solid #D9CBB5;
+    border-radius: 999px;              /* número muy grande = extremos totalmente redondos */
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2E2A26;
+    cursor: pointer;
+}
+.filtros button:hover{
+    border-color: #A3542E;
+    color: #A3542E;
+}
+.filtros button[aria-pressed="true"]{
+    background-color: #A3542E;
+    border-color: #A3542E;
+    color: #FFFFFF;
+}
+.filtros button:focus-visible{
+    outline: 2px solid #2F4A6B;
+    outline-offset: 2px;
+}
+
+/* La hoja de papel */
+.papel{
+    position: relative;                /* referencia para colocar el aguayo arriba */
+    max-width: 760px;
+    margin: 32px auto 0;
+    padding: 64px 72px;
+    background-color: #FFFFFF;
+    border: 1px solid #E4DACB;
+    box-shadow: 0 12px 40px rgba(46, 42, 38, 0.08);
+}
+.papel > .aguayo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.papel-cabecera{
+    margin-bottom: 36px;
+    text-align: center;
+}
+.papel-marca{                          /* la misma letra de pluma que el logo del header */
+    font-family: 'Pinyon Script', cursive;
+    font-size: 52px;
+    font-weight: 400;                  /* Pinyon Script solo tiene un grosor: con 600 el navegador la engorda a la fuerza */
+    line-height: 1.1;
+    color: #5A3825;
+}
+.papel-sub{
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5E554D;
+}
+
+/* Secciones de la carta */
+.carta-seccion + .carta-seccion{
+    margin-top: 40px;
+}
+.carta-seccion h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+    text-align: center;
+}
+.carta-sub{
+    margin-top: 2px;
+    font-size: 13px;
+    color: #5E554D;
+    text-align: center;
+}
+/* Subgrupos dentro de una sección (en Bebidas: refrescos, cafés, cervezas…) */
+.carta-seccion h4{
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #2F4A6B;
+}
+.productos{
+    margin-top: 12px;
+    padding: 0;
+}
+.producto{
+    padding-block: 10px;
+}
+/* Nombre · · · · · precio */
+.producto-linea{
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+.producto-nombre{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-weight: 500;
+}
+.linea-puntos{                          /* no se llama .puntos: ese nombre ya lo usa el carrusel en style.css */
+    flex: 1;
+    min-width: 24px;
+    border-bottom: 1.5px dotted #D9CBB5;
+    transform: translateY(-4px);
+}
+.precio{
+    font-weight: 500;
+    color: #A3542E;
+    white-space: nowrap;
+}
+.producto-desc{
+    margin-top: 2px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #5E554D;
+}
+/* Nota debajo de un subgrupo (en los cafés: descafeinado y tipos de leche) */
+.carta-nota{
+    margin-top: 6px;
+    font-size: 13px;
+    font-style: italic;
+    color: #5E554D;
+}
+.carta-aviso{
+    margin-top: 40px;
+    font-size: 13px;
+    color: #5E554D;
+    text-align: center;
+}
+
+/* La franja final (servicio.css) es del mismo arena que el fondo: una línea los separa */
+#cta{
+    border-top: 1px solid #D9CBB5;
+}
+
+/* ===== PANTALLAS GRANDES (1920) ===== */
+@media (min-width: 1920px){
+    #carta-wrapper{
+        max-width: 1600px;
+    }
+    #carta-cabecera h1{
+        font-size: 72px;
+    }
+    .destacado img{
+        height: 320px;
+    }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1023px){
+    #carta-wrapper{
+        padding-block: 48px 64px;
+    }
+    .imprescindibles-lista{
+        gap: 16px;
+    }
+    .destacado{
+        flex-basis: calc((100% - 32px) / 3);
+    }
+    .destacado img{
+        height: 200px;
+    }
+    .destacado-texto{
+        padding: 16px 18px 18px;
+    }
+    .destacado h3{
+        font-size: 26px;
+    }
+    /* Tarjetas más estrechas: el precio pasa debajo del nombre */
+    .destacado-linea{
+        flex-direction: column;
+        gap: 2px;
+    }
+    .papel{
+        padding: 56px 48px;
+    }
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 767px){
+    /* Nuevo orden en móvil: cabecera → filtros → recomendados → "Toda la carta" → papel.
+       Así, al pulsar un filtro se ve cambiar lo que hay debajo. */
+    #carta-wrapper{
+        display: flex;
+        flex-direction: column;
+        padding-block: 40px 56px;
+    }
+    #toda-la-carta{
+        display: contents;             /* la caja desaparece y sus hijos (título, filtros, papel) se ordenan como hijos del wrapper */
+    }
+    #carta-cabecera{ order: 1; }
+    .filtros{ order: 2; }
+    #imprescindibles{ order: 3; }
+    #toda-la-carta h2{ order: 4; }
+    .papel{ order: 5; }
+
+    #carta-cabecera h1{
+        font-size: 40px;
+    }
+    #imprescindibles h2,
+    #toda-la-carta h2{
+        font-size: 32px;
+    }
+    #imprescindibles{
+        margin-top: 28px;
+    }
+    #toda-la-carta h2{
+        margin-top: 48px;
+    }
+
+    /* Filtros: una fila que se desliza en horizontal y se queda pegada arriba al bajar */
+    .filtros{
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin: 28px calc(-1 * clamp(16px, 5vw, 64px)) 0;   /* de borde a borde de la pantalla */
+        padding: 12px clamp(16px, 5vw, 64px);
+        background-color: #F1EBE1;
+        border-block: 1px solid #E4DACB;
+    }
+    .filtros::-webkit-scrollbar{
+        display: none;
+    }
+    .filtros button{
+        flex-shrink: 0;
+        padding-inline: 16px;
+        font-size: 14px;
+    }
+
+    /* Recomendados en lista compacta (diseño B): foto pequeña a la izquierda y el texto al lado */
+    .imprescindibles-lista{
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 22px;
+    }
+    .destacado{
+        display: flex;
+        flex-basis: auto;
+    }
+    .destacado img{
+        width: 96px;
+        height: auto;                  /* se estira al alto de la tarjeta */
+        min-height: 96px;
+        flex-shrink: 0;
+    }
+    .destacado-texto{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 14px;
+    }
+    .destacado-linea{
+        flex-direction: row;
+    }
+    .destacado h3{
+        font-size: 22px;
+    }
+    .destacado-desc{
+        font-size: 13px;
+    }
+    .papel{
+        padding: 44px 20px 36px;
+    }
+    .papel-marca{
+        font-size: 42px;
+    }
+    .papel-sub{
+        font-size: 11px;
+        letter-spacing: 2px;           /* con 3px no cabe en una línea y el punto se queda colgando */
+    }
+    .producto-nombre{
+        font-size: 20px;
+    }
+}
