@@ -28,7 +28,8 @@ html {
 /* La página ocupa al menos toda la pantalla,
    el texto se lee mejor y las fuentes se ven más suaves. */
 body {
-    min-height: 100vh;
+    min-height: 100vh;      /* para navegadores antiguos */
+    min-height: 100svh;     /* svh = el alto con la barra del navegador a la vista (con vh, en el móvil sobraba un trozo) */
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
@@ -41,6 +42,12 @@ video,
 svg {
     display: block;
     max-width: 100%;
+}
+
+/* Las fotos llevan width y height en el HTML (para que la página no salte al cargar):
+   con height: auto, al encoger el ancho el alto se recalcula y la foto no se deforma. */
+img {
+    height: auto;
 }
 
 /* Los formularios usan la fuente de la página

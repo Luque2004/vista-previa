@@ -1,9 +1,84 @@
 
+/* Curva de las animaciones: arranca rápido y frena suave (las de CSS por defecto son flojas) */
+:root{
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
 body{
     font-family: 'Work Sans', sans-serif;
     font-size: 16px;
     color: #2E2A26;
     background-color: #FAF7F2;
+}
+/* Sin el destello gris/azul que pinta el móvil al tocar: cada botón y enlace tiene su propio :active */
+html{
+    -webkit-tap-highlight-color: transparent;
+}
+/* Lo que pinta el navegador por su cuenta, también en los colores de la marca: el texto seleccionado y la barra de desplazamiento */
+::selection{
+    background-color: #F2B48F;         /* melocotón, con el texto en tinta (en vez del azul del navegador) */
+    color: #2E2A26;
+}
+html{
+    scrollbar-color: #D9CBB5 #FAF7F2;  /* barra arena sobre fondo lino */
+}
+/* Sin la espera del doble toque (zoom) al pulsar enlaces y botones en el móvil */
+a,
+button{
+    touch-action: manipulation;
+}
+/* Mantener pulsado un botón no selecciona su texto (el resto sí se puede copiar: dirección, teléfono, precios) */
+button,
+.presupuesto>a,
+.llamar>a{
+    -webkit-user-select: none;
+    user-select: none;
+}
+/* Enlaces de texto: al tocarlos se aclaran un momento (los botones ya se hunden con su propio :active) */
+a:active,
+.submenu-toggle:active{
+    opacity: 0.6;
+}
+.presupuesto>a:active,
+.llamar>a:active{
+    opacity: 1;
+}
+a[href^="tel:"]{
+    white-space: nowrap;               /* el teléfono nunca se parte en dos líneas */
+}
+
+/* ===== ACCESIBILIDAD ===== */
+/* Texto solo para lectores de pantalla: no se ve, pero se lee */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+/* "Saltar al contenido": fuera de la pantalla hasta que se llega a él con Tab */
+.saltar{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+    padding: 12px 18px;
+    background-color: #2F4A6B;
+    color: #FAF7F2;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-200%);
+}
+.saltar:focus{
+    transform: none;
+}
+/* Contorno al navegar con el teclado (con el ratón no sale: por eso :focus-visible y no :focus) */
+:focus-visible{
+    outline: 2px solid #2F4A6B;
+    outline-offset: 3px;
+}
+footer :focus-visible{
+    outline-color: #F2E8D5;            /* sobre el añil del footer, en crema */
 }
 li>a,ul{
     text-decoration: none;
@@ -49,6 +124,7 @@ header{
     font-family: 'Pinyon Script', cursive;   /* letra de pluma, solo para el logo */
     font-size: 40px;                   /* las letras caligráficas se ven más pequeñas que una normal al mismo tamaño */
     font-weight: 400;
+    transition: opacity 150ms ease;
 }
 #header-nav-wrapper>nav>ul{
     display: flex;
@@ -63,6 +139,12 @@ header{
     color: #A3542E;
     text-decoration: underline;
     text-underline-offset: 6px;
+}
+
+/* Enlaces del menú: al pasar el ratón el color cambia suave */
+#menu li:not(.presupuesto)>a,
+.submenu-toggle{
+    transition: color 150ms ease;
 }
 
 /* Submenú de Servicios: desplegable que se abre al pulsar (main.js cambia aria-expanded) */
@@ -88,7 +170,7 @@ header{
     border-right: 1.5px solid currentColor;
     border-bottom: 1.5px solid currentColor;
     transform: translateY(-2px) rotate(45deg);
-    transition: transform .2s;
+    transition: transform 200ms var(--ease-out);
 }
 .submenu-toggle[aria-expanded="true"]::after{
     transform: translateY(2px) rotate(-135deg);
@@ -104,17 +186,28 @@ header{
     background-color: #FAF7F2;
     border: 1px solid #E4DACB;
     box-shadow: 0 8px 24px rgba(46,42,38,.08);
+    transform-origin: top left;        /* nace de su botón, no del centro */
+    transition: opacity 150ms var(--ease-out), transform 150ms var(--ease-out);
 }
 .submenu-toggle[aria-expanded="true"] + #submenu-servicios{
     display: block;                    /* + = la lista que va justo después del botón */
+}
+/* Al abrirse entra con un fundido corto; al cerrarse desaparece al instante (la salida, más rápida que la entrada) */
+@starting-style{
+    .submenu-toggle[aria-expanded="true"] + #submenu-servicios{
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
 }
 #submenu-servicios a{
     display: block;
     padding: 10px 20px;
     white-space: nowrap;
 }
-#submenu-servicios a:hover{
-    background-color: #F1EBE1;
+@media (hover: hover) and (pointer: fine){
+    #submenu-servicios a:hover{
+        background-color: #F1EBE1;
+    }
 }
 #submenu-servicios a[aria-current="page"]{
     color: #A3542E;
@@ -142,6 +235,11 @@ header{
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
+    transition: background-color 150ms ease, transform 160ms var(--ease-out);
+}
+/* Al pulsarlo se hunde un poco: confirma que se ha pulsado */
+.presupuesto>a:active{
+    transform: scale(0.97);
 }
 
 /* Botón hamburguesa: oculto en ordenador, se enseña en el @media de tablet */
@@ -216,6 +314,7 @@ header{
     font-size: 16px;
     font-weight: 500;
     white-space: nowrap;        /* la flecha no se separa del texto */
+    transition: color 150ms ease;
 }
 
 /* Mosaico de fotos */
@@ -242,11 +341,110 @@ header{
     display: none;
 }
 
+/* Los imprescindibles: en ordenador, un trocito de la hoja de papel de la carta (opción A que eligió el cliente).
+   En móvil se convierten en tarjetas con foto (opción B): ver el @media de móvil.
+   Todo va dentro de .imprescindibles-portada para no tocar los recomendados de carta.html, que usan las mismas clases */
+.imprescindibles-portada{
+    margin-top: 56px;
+    padding-block: 56px 64px;
+    background-color: #F1EBE1;
+    /* La banda arena llega de lado a lado de la pantalla aunque la sección esté dentro de #main-wrapper:
+       border-image pinta el fondo 100vw hacia cada lado sin crear scroll lateral (un margen con 100vw sí lo crearía) */
+    border-image: linear-gradient(#F1EBE1 0 0) fill 0 / / 0 100vw;
+}
+/* Si el cliente quita todas las estrellas, la sección no sale */
+.imprescindibles-portada:not(:has(.destacado)){
+    display: none;
+}
+.tira{
+    position: relative;                /* referencia para colocar el aguayo arriba */
+    padding: 52px 56px 40px;
+    background-color: #FFFFFF;
+    border: 1px solid #E4DACB;
+    box-shadow: 0 12px 40px rgba(46, 42, 38, 0.08);
+    text-align: center;
+}
+.tira > .aguayo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.tira h2{
+    margin-top: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.05;
+}
+.tira h2 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+/* Flex y no grid: con 1 o 2 productos quedan centrados en vez de dejar huecos */
+.imprescindibles-lista{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 48px;
+    margin-top: 36px;
+    text-align: left;
+}
+.imprescindibles-portada .destacado{
+    flex: 0 1 calc((100% - 96px) / 3);   /* un tercio del ancho, descontando los 2 huecos de 48px */
+}
+.imprescindibles-portada .destacado img{
+    display: none;                     /* en ordenador es una línea de la carta: sin foto (con loading="lazy" ni se descarga) */
+}
+/* Nombre · · · · · precio, como en la carta */
+.imprescindibles-portada .destacado-linea{
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+.imprescindibles-portada .destacado h3{
+    min-width: 0;                      /* en flex, sin esto un nombre muy largo empuja el precio fuera */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+}
+.imprescindibles-portada .linea-puntos{
+    flex: 1;
+    min-width: 24px;
+    border-bottom: 1.5px dotted #D9CBB5;
+    transform: translateY(-4px);
+}
+.imprescindibles-portada .precio{
+    flex-shrink: 0;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;   /* cifras igual de anchas, como en la carta */
+    color: #A3542E;
+    white-space: nowrap;
+}
+.imprescindibles-portada .destacado-desc{
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #5E554D;
+}
+.enlace-carta{
+    display: inline-block;
+    margin-top: 36px;
+    color: #2F4A6B;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    transition: color 150ms ease;
+}
+
 /* Servicios */
 #main-container-01{
     display: flex;
     gap: 16px;
     padding-block: 56px 64px;
+    scroll-margin-top: 24px;           /* al llegar desde "Ver servicios", un poco de aire arriba */
 }
 .tarjeta{
     flex: 1;
@@ -279,6 +477,8 @@ header{
     font-size: 14px;
     font-weight: 600;
     color: #2F4A6B;
+    text-underline-offset: 4px;        /* el subrayado separado del texto, como en el resto de enlaces */
+    transition: color 150ms ease;
 }
 
 /* ===== FOOTER ===== */
@@ -375,6 +575,9 @@ footer a{
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    max-width: 100%;
+    overflow-wrap: anywhere;           /* un correo largo se parte en vez de ensanchar toda la página en el móvil */
+    transition: text-decoration-color 150ms ease;
 }
 .con-icono img{
     width: 18px;
@@ -400,6 +603,13 @@ footer a{
     font-weight: 600;
     text-decoration: none;
 }
+/* "Cómo llegar": el subrayado ya está, pero transparente; al pasar el ratón aparece con un fundido */
+#mapa a>span{
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 5px;
+    transition: text-decoration-color 150ms ease;
+}
 
 /* Fila legal */
 #copyright-container{
@@ -420,6 +630,37 @@ footer a{
     padding: 0;
     color: inherit;             /* anula el color tinta de la regla global "li>a,ul" */
 }
+#copyright-container a{
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+/* ===== HOVER: solo con ratón o trackpad (en pantallas táctiles, después de tocar, el hover se quedaría "pegado") ===== */
+@media (hover: hover) and (pointer: fine){
+    #logo:hover{
+        opacity: 0.8;
+    }
+    #menu li:not(.presupuesto)>a:hover,
+    .submenu-toggle:hover,
+    .enlace-servicios>a:hover,
+    .enlace-carta:hover,
+    .tarjeta a:hover{
+        color: #A3542E;
+    }
+    .presupuesto>a:hover{
+        background-color: #8C4526;     /* teja más oscuro */
+    }
+    #contacto a:hover,
+    #mapa a:hover>span,
+    #copyright-container a:hover{
+        text-decoration-color: currentColor;
+    }
+    #copyright-container a:hover{
+        color: #FAF7F2;
+    }
+}
+
 /* ===== PANTALLAS GRANDES (a partir de 1920 px) ===== */
 @media (min-width: 1920px){
 
@@ -549,13 +790,17 @@ footer a{
         padding: 0;
         background: none;
         border: none;
+        transition: transform 160ms var(--ease-out);
+    }
+    .menu-toggle:active{
+        transform: scale(0.95);
     }
     .menu-toggle span{
         display: block;
         width: 24px;
         height: 2px;
         background-color: #2E2A26;
-        transition: transform .2s, opacity .2s;
+        transition: transform 200ms var(--ease-out), opacity 200ms var(--ease-out);
     }
     /* Con el menú abierto, las 3 rayas se convierten en una X */
     .menu-toggle[aria-expanded="true"] span:nth-child(1){
@@ -579,9 +824,17 @@ footer a{
         background-color: #FAF7F2;
         border-bottom: 1px solid #E4DACB;
         box-shadow: 0 12px 24px rgba(46, 42, 38, 0.15);
+        transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
     }
     header.menu-abierto #header-nav-wrapper{
         display: block;
+    }
+    /* Al abrirse baja un poco con un fundido; al cerrarse desaparece al instante */
+    @starting-style{
+        header.menu-abierto #header-nav-wrapper{
+            opacity: 0;
+            transform: translateY(-8px);
+        }
     }
     #header-nav-wrapper>nav>ul{
         flex-direction: column;
@@ -664,6 +917,20 @@ footer a{
         grid-column: auto;
     }
 
+    /* Imprescindibles: la hoja en una sola columna, como la carta en tablet (tres columnas no caben) */
+    .tira{
+        max-width: 760px;
+        margin-inline: auto;
+        padding: 48px 48px 36px;
+    }
+    .imprescindibles-lista{
+        flex-direction: column;
+        gap: 18px;
+    }
+    .imprescindibles-portada .destacado{
+        flex-basis: auto;              /* en columna, el tercio se aplicaría al alto */
+    }
+
     /* Servicios: 3 columnas con el icono encima del texto */
     #main-container-01{
         gap: 12px;
@@ -735,6 +1002,7 @@ footer a{
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;      /* sin barra de scroll: en su lugar van los puntos */
+        overscroll-behavior-x: contain;   /* al llegar a la última foto, el gesto no se escapa a la página */
     }
     #mosaico::-webkit-scrollbar{
         display: none;              /* lo mismo para Safari y navegadores antiguos */
@@ -745,18 +1013,18 @@ footer a{
         scroll-snap-align: start;
     }
 
-    /* Puntos: el botón mide 20 × 24 para que sea fácil de pulsar; el punto se dibuja con ::before */
+    /* Puntos: el botón mide 24 × 44 para que sea fácil de pulsar con el dedo; el punto se dibuja con ::before */
     .puntos{
         display: flex;
         justify-content: center;
-        padding-top: 12px;
+        padding-top: 2px;           /* el punto queda donde estaba: 2 + 44 / 2 = 24 px por debajo de las fotos */
     }
     .puntos button{
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 20px;
-        height: 24px;
+        width: 24px;
+        height: 44px;
         padding: 0;
         background: none;
         border: none;
@@ -771,6 +1039,69 @@ footer a{
     }
     .puntos button.activo::before{
         background-color: #2F4A6B;
+    }
+
+    /* Imprescindibles: tarjetas con foto (opción B que eligió el cliente), como los recomendados de la carta en móvil */
+    .imprescindibles-portada{
+        margin-top: 24px;
+        padding-block: 40px 48px;
+    }
+    .tira{
+        padding: 0;                    /* sin hoja de papel: cada producto es su propia tarjeta */
+        background: none;
+        border: 0;
+        box-shadow: none;
+    }
+    .tira > .aguayo{
+        display: none;                 /* sin hoja, sin su franja */
+    }
+    .tira h2{
+        font-size: 32px;
+    }
+    .imprescindibles-lista{
+        gap: 10px;
+        margin-top: 22px;
+    }
+    .imprescindibles-portada .destacado{
+        display: flex;
+        background-color: #FFFFFF;
+        border: 1px solid #E4DACB;
+        box-shadow: 0 8px 24px rgba(46, 42, 38, 0.06);
+    }
+    .imprescindibles-portada .destacado img{
+        display: block;
+        width: 96px;
+        height: auto;                  /* se estira al alto de la tarjeta */
+        min-height: 96px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+    .imprescindibles-portada .destacado-texto{
+        flex: 1;
+        min-width: 0;                  /* sin esto, un nombre o un precio largos sacan la tarjeta de la pantalla */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px 14px;
+    }
+    .imprescindibles-portada .destacado-linea{
+        flex-wrap: wrap;               /* si el nombre y el precio no caben juntos, el precio baja debajo */
+        justify-content: space-between;
+        gap: 4px 12px;
+    }
+    .imprescindibles-portada .linea-puntos{
+        display: none;                 /* en la tarjeta, el precio va a la derecha sin puntos */
+    }
+    .imprescindibles-portada .destacado h3{
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.1;
+    }
+    .imprescindibles-portada .destacado-desc{
+        font-size: 13px;
+    }
+    .enlace-carta{
+        margin-top: 28px;
     }
 
     /* Servicios: tarjetas apiladas, con el icono a la izquierda */
@@ -790,6 +1121,10 @@ footer a{
     #footer-container-0{
         gap: 36px;
         padding-block: 48px 40px;
+    }
+    /* Teléfono, correo, Instagram y TikTok: cada uno en una fila de 44 px de alto, para no pulsar el de al lado con el dedo */
+    #contacto .con-icono{
+        padding-block: 9px;
     }
     #footer-container-0>div{
         flex-basis: 100%;

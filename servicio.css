@@ -1,6 +1,6 @@
 /* ===== HERO: foto a todo el ancho con el texto encima ===== */
 #hero-container{
-    min-height: max(540px, 50vh);      /* nunca menos de 540px, aunque la pantalla sea bajita */
+    min-height: max(540px, 50svh);     /* nunca menos de 540px; svh: no cambia de alto al esconderse la barra del móvil */
     background:
         linear-gradient(to top, rgba(46,42,38,.82), rgba(46,42,38,.1) 65%),
         url("img/placeholder.svg") center / cover no-repeat;
@@ -70,6 +70,7 @@
     margin-top: 32px;
 }
 .opcion{
+    position: relative;                /* referencia para colocar la insignia sobre el borde */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -96,9 +97,12 @@
     gap: 10px;
     font-size: 15px;
 }
+.opcion li{
+    display: flex;
+    gap: 8px;                          /* si el texto ocupa dos líneas, la segunda empieza alineada con la primera, no debajo del ✓ */
+}
 .opcion li::before{
-    content: "✓";                     /* con CSS el lector de pantalla no lo lee en cada línea */
-    margin-right: 8px;
+    content: "✓" / "";                /* lo de después de / es lo que lee el lector de pantalla: nada */
     color: #2F4A6B;
     font-weight: 600;
 }
@@ -110,6 +114,9 @@
     padding-top: 6px;
 }
 .opcion .insignia{                     /* con .opcion delante gana a .opcion>p, que la pintaba de gris */
+    position: absolute;                /* sobre el borde de arriba: no ocupa línea y los títulos de las dos tarjetas quedan a la misma altura */
+    top: 0;                            /* sin left: se queda donde empieza el texto de la tarjeta, con el relleno de cada tamaño de pantalla */
+    transform: translateY(-50%);       /* mitad dentro y mitad fuera de la tarjeta */
     background-color: #A3542E;
     color: #FFFFFF;
     font-size: 11px;
@@ -197,6 +204,21 @@
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
+    transition: background-color 150ms ease, color 150ms ease, transform 160ms var(--ease-out);
+}
+.llamar>a:active{
+    transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine){
+    .llamar>a:hover{
+        background-color: #2F4A6B;
+        color: #FAF7F2;
+    }
+}
+/* Sobre la foto oscura del hero, el contorno del teclado va en claro */
+#hero-container :focus-visible{
+    outline-color: #FAF7F2;
 }
 
 /* ===== PANTALLAS GRANDES (1920) ===== */
@@ -302,6 +324,12 @@
     }
     .opcion h3{
         font-size: 28px;
+    }
+    /* Las tarjetas van una debajo de otra: no hace falta alinear títulos, así que la insignia vuelve dentro de su tarjeta
+       (sobre el borde se quedaba a 3 px de la tarjeta de arriba y no se sabía de cuál era) */
+    .opcion .insignia{
+        position: static;
+        transform: none;
     }
     /* Botón a todo el ancho de la tarjeta: más fácil de pulsar con el dedo */
     .opcion .presupuesto{

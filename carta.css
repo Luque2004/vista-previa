@@ -55,6 +55,7 @@
 /* Flex y no grid: si un grupo tiene solo 2 tarjetas, quedan centradas en vez de dejar un hueco a la derecha */
 .imprescindibles-lista{
     display: flex;
+    flex-wrap: wrap;                   /* con 4 o más, la cuarta baja a otra fila, centrada, en vez de estrecharse todas */
     justify-content: center;
     gap: 24px;
     margin-top: 28px;
@@ -76,11 +77,13 @@
 }
 .destacado-linea{
     display: flex;
+    flex-wrap: wrap;                   /* si el nombre y el precio no caben juntos, el precio baja debajo */
     justify-content: space-between;
     align-items: baseline;
-    gap: 12px;
+    gap: 4px 12px;
 }
 .destacado h3{
+    min-width: 0;                      /* en flex, sin esto un nombre muy largo empuja el precio fuera */
     font-family: 'Cormorant Garamond', serif;
     font-size: 30px;
     font-weight: 600;
@@ -119,30 +122,51 @@
     font-weight: 500;
     color: #2E2A26;
     cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 160ms var(--ease-out);
 }
-.filtros button:hover{
-    border-color: #A3542E;
-    color: #A3542E;
+.filtros button:active{
+    transform: scale(0.97);
+}
+@media (hover: hover) and (pointer: fine){
+    .filtros button:hover{
+        border-color: #A3542E;
+        color: #A3542E;
+    }
 }
 .filtros button[aria-pressed="true"]{
     background-color: #A3542E;
     border-color: #A3542E;
     color: #FFFFFF;
 }
-.filtros button:focus-visible{
-    outline: 2px solid #2F4A6B;
-    outline-offset: 2px;
+/* Al filtrar, lo que aparece entra con un fundido corto y lo que se va desaparece al instante.
+   carta.js pone .filtrando en el primer clic: así la página no se anima al abrirla */
+.filtrando .carta-seccion,
+.filtrando .recomendados-grupo{
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+@starting-style{
+    .filtrando .carta-seccion,
+    .filtrando .recomendados-grupo{
+        opacity: 0;
+        transform: translateY(6px);
+    }
 }
 
 /* La hoja de papel */
 .papel{
     position: relative;                /* referencia para colocar el aguayo arriba */
-    max-width: 760px;
+    max-width: 1120px;                 /* en ordenador, ancha para dos columnas (en tablet y móvil vuelve a 760px y a una sola) */
     margin: 32px auto 0;
     padding: 64px 72px;
     background-color: #FFFFFF;
     border: 1px solid #E4DACB;
     box-shadow: 0 12px 40px rgba(46, 42, 38, 0.08);
+    columns: 2;                        /* como una carta impresa: se lee bajando por la izquierda y sigue arriba a la derecha */
+    column-gap: 64px;
+}
+.papel-cabecera,
+.carta-aviso{
+    column-span: all;                  /* la cabecera y el aviso van de lado a lado, por encima y por debajo de las columnas */
 }
 .papel > .aguayo{
     position: absolute;
@@ -200,8 +224,27 @@
     margin-top: 12px;
     padding: 0;
 }
+/* Lo que se queda sin productos no se enseña: ni la lista vacía, ni su título, ni la sección, ni su grupo de recomendados */
+.productos:not(:has(.producto)),
+.carta-seccion h4:not(:has(+ .productos .producto)),       /* :has() no se puede meter dentro de otro :has(): si no, se anula toda la regla */
+.carta-seccion:not(:has(.producto)),
+.recomendados-grupo:not(:has(.destacado)){
+    display: none;
+}
 .producto{
     padding-block: 10px;
+    break-inside: avoid;               /* un producto nunca se parte entre dos columnas */
+}
+/* Un título nunca se queda solo al pie de una columna: baja con lo que encabeza */
+.carta-seccion h3,
+.carta-sub,
+.carta-seccion h4{
+    break-after: avoid;
+}
+/* En la carta completa, una sección corta (sin subgrupos, como el pan) no se parte entre las dos columnas.
+   Con un filtro puesto sí se parte: así la única sección que se ve se reparte entre las dos */
+.papel:not(:has(.carta-seccion[hidden])) .carta-seccion:not(:has(h4)){
+    break-inside: avoid;
 }
 /* Nombre · · · · · precio */
 .producto-linea{
@@ -210,6 +253,7 @@
     gap: 12px;
 }
 .producto-nombre{
+    min-width: 0;                      /* lo mismo que en .destacado h3 */
     font-family: 'Cormorant Garamond', serif;
     font-size: 23px;
     font-weight: 500;
@@ -220,14 +264,27 @@
     border-bottom: 1.5px dotted #D9CBB5;
     transform: translateY(-4px);
 }
+/* Sin precio, sin puntos: si el precio se queda vacío, no queda una línea que no lleva a ninguna parte */
+.producto-linea:has(.precio:empty) .linea-puntos{
+    visibility: hidden;
+}
 .precio{
     font-weight: 500;
+    font-variant-numeric: tabular-nums;   /* todas las cifras igual de anchas: los precios quedan alineados */
     color: #A3542E;
     white-space: nowrap;
 }
+/* En la lista, un precio largo ("1,70 € · leche de avena +0,30 €") ocupa como mucho media línea y se parte:
+   así el nombre nunca se queda en una palabra por línea */
+.producto-linea .precio{
+    flex-shrink: 0;                    /* el precio no cede sitio: si no, "2,85 €" se partía en dos al lado de un nombre largo */
+    max-width: 50%;
+    white-space: normal;
+    text-align: right;
+}
 .producto-desc{
     margin-top: 2px;
-    font-size: 13px;
+    font-size: 14px;                   /* como el texto de las tarjetas: a 13px costaba leerla */
     line-height: 1.5;
     color: #5E554D;
 }
@@ -289,6 +346,8 @@
         gap: 2px;
     }
     .papel{
+        max-width: 760px;              /* en tablet y móvil, la hoja de siempre: una sola columna */
+        columns: auto;
         padding: 56px 48px;
     }
 }
@@ -334,6 +393,7 @@
         justify-content: flex-start;
         gap: 8px;
         overflow-x: auto;
+        overscroll-behavior-x: contain;    /* al llegar al último filtro, el gesto no se escapa a la página */
         scrollbar-width: none;
         margin: 28px calc(-1 * clamp(16px, 5vw, 64px)) 0;   /* de borde a borde de la pantalla */
         padding: 12px clamp(16px, 5vw, 64px);
@@ -342,6 +402,10 @@
     }
     .filtros::-webkit-scrollbar{
         display: none;
+    }
+    /* Al moverse con Tab, el navegador deja este hueco arriba: los filtros fijos no tapan lo que tiene el foco */
+    html{
+        scroll-padding-top: 86px;
     }
     .filtros button{
         flex-shrink: 0;
@@ -367,6 +431,7 @@
     }
     .destacado-texto{
         flex: 1;
+        min-width: 0;                  /* sin esto, un nombre o un precio largos sacan la tarjeta de la pantalla */
         display: flex;
         flex-direction: column;
         justify-content: center;

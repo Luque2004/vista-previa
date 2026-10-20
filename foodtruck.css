@@ -1,0 +1,287 @@
+/* ===== PÁGINA DEL FOODTRUCK (diseño F02, ficha técnica) =====
+   El header, el footer, #main-wrapper, .etiqueta, .intro, .sr-only y los botones vienen de style.css; aquí solo va lo propio de esta página */
+
+/* ===== MIGAS DE PAN: Inicio · Servicios · Foodtruck ===== */
+#content-01{
+    padding-top: 28px;
+}
+.migas ol{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    font-size: 13px;
+    color: #5E554D;
+}
+.migas li + li::before{                 /* el punto va entre elemento y elemento, nunca delante del primero */
+    content: "·";
+    margin-inline: 6px;
+}
+.migas a{
+    color: inherit;
+    text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine){
+    .migas a:hover{
+        text-decoration: underline;
+    }
+}
+.migas [aria-current="page"]{
+    color: #2E2A26;
+    font-weight: 500;
+}
+
+/* ===== GALERÍA ===== */
+#mosaico-foodtruck{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 16px;
+    margin-top: 24px;
+}
+#mosaico-foodtruck img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img-grande{
+    grid-row: span 2;
+}
+.img-larga{
+    grid-column: span 2;
+}
+
+/* ===== TEXTO + FICHA ===== */
+#content-02{
+    display: flex;
+    align-items: flex-start;               /* sin esto la ficha se estira hasta el alto del texto y sticky no funciona */
+    gap: 64px;
+    padding-block: 40px 72px;
+}
+#foodtruck-texto{
+    flex: 1.6;
+    min-width: 0;                          /* sin esto, un texto largo ensancha la columna y aplasta la ficha de al lado */
+    display: flex;
+    flex-direction: column;
+}
+#foodtruck-texto h1{
+    margin-top: 14px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.02;
+}
+#foodtruck-texto h1 em,
+#foodtruck-texto h2 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+#foodtruck-texto .intro{
+    margin-top: 20px;
+}
+#foodtruck-texto h2{
+    margin-top: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+/* ===== OPCIONES ===== */
+.opciones{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+.opcion-tarjeta{
+    flex: 1;
+    min-width: 0;                          /* las dos tarjetas igual de anchas aunque un botón tenga más texto */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 26px;
+    background-color: #F1EBE1;
+}
+.opcion-tarjeta h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.opcion-desc,
+.opcion-precio{
+    font-size: 15px;
+    line-height: 1.5;
+    color: #5E554D;
+}
+.opcion-precio{
+    margin-top: auto;                      /* empuja precio y botón al fondo: quedan alineados en las dos tarjetas */
+    font-size: 13px;
+}
+.ticks{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 0;
+    font-size: 15px;
+}
+.ticks li{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    overflow-wrap: anywhere;           /* una palabra muy larga se parte en vez de salirse de la tarjeta */
+}
+.ticks li::before{
+    width: 14px;
+    flex-shrink: 0;
+    text-align: center;
+}
+.ticks .si::before{
+    content: "✓" / "";                /* lo de después de / es lo que lee el lector de pantalla: nada */
+    color: #3F6E4E;
+    font-weight: 600;
+}
+.ticks .no{
+    color: #5E554D;                    /* texto suave: lo que no incluye ya se distingue por el guion, pero tiene que leerse (con #A39A90 era 2,34:1) */
+}
+.ticks .no::before{
+    content: "—" / "";
+    color: #CFC6BA;
+}
+.opcion-tarjeta .presupuesto>a{
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    padding-block: 12px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    white-space: normal;                   /* un texto largo se parte en dos líneas en vez de salirse */
+    text-align: center;
+}
+
+/* ===== FICHA ===== */
+#ficha{
+    flex: 1;
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    background-color: #F1EBE1;
+}
+#ficha h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+#ficha dl>div{
+    display: flex;
+    flex-wrap: wrap;                       /* si el valor es largo, baja debajo de su etiqueta en vez de partir las dos en trocitos */
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2px 16px;
+    padding-block: 10px;
+    border-bottom: 1px solid #E4DACB;
+    font-size: 15px;
+}
+#ficha dt{
+    color: #5E554D;
+}
+#ficha dd{
+    margin-left: auto;                     /* también cuando baja a su propia línea, se queda a la derecha */
+    font-weight: 600;
+    text-align: right;
+}
+.ficha-llamar{
+    text-align: center;
+    font-size: 15px;
+    color: #5E554D;
+}
+.ficha-llamar a{
+    color: #2F4A6B;
+    font-weight: 500;
+    text-underline-offset: 4px;
+    transition: color 150ms ease;
+}
+@media (hover: hover) and (pointer: fine){
+    .ficha-llamar a:hover{
+        color: #A3542E;
+    }
+}
+
+/* ===== PANTALLAS GRANDES (1920) ===== */
+@media (min-width: 1920px){
+    #mosaico-foodtruck{
+        grid-template-rows: 260px 260px;
+    }
+    #foodtruck-texto h1{
+        font-size: 68px;
+    }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1023px){
+    #mosaico-foodtruck{
+        grid-template-rows: 170px 170px;
+        gap: 12px;
+    }
+    #content-02{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+        padding-block: 32px 56px;
+    }
+    #ficha{
+        position: static;                  /* en una sola columna ya no tiene sentido que se quede fija */
+    }
+    #foodtruck-texto h1{
+        font-size: 46px;
+    }
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 767px){
+    /* Mini mosaico, como la galería del local */
+    #mosaico-foodtruck{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 130px 130px;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    .img-grande{
+        grid-column: span 2;
+        grid-row: auto;
+    }
+    #foodtruck-texto h1{
+        font-size: 38px;
+    }
+    #foodtruck-texto h2{
+        margin-top: 32px;
+        font-size: 28px;
+    }
+    .opciones{
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 16px;
+    }
+    .opcion-tarjeta{
+        padding: 22px;
+    }
+    .opcion-tarjeta h3{
+        font-size: 24px;
+    }
+    .opcion-desc,
+    .ticks{
+        font-size: 14px;
+    }
+
+    #ficha{
+        padding: 24px;
+    }
+    #ficha dl>div{
+        font-size: 14px;
+    }
+}

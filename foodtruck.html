@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#FAF7F2">
+    <meta name="color-scheme" content="only light">
+    <title>Foodtruck para eventos · Miriam Rose, Canovelles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Pinyon+Script&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="foodtruck.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <div class="aguayo" aria-hidden="true"></div>
+    <header>
+        <div id="header-wrapper">
+
+            <a href="index.html" id="logo" translate="no">Miriam Rose</a>
+            <!-- Hamburguesa: solo se ve en tablet y móvil (ver main.js) -->
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <div id="header-nav-wrapper">
+                <nav id="menu">
+                    <ul role="list">
+                        <li><a href="#">Cómo lo hacemos</a></li>
+                        <li class="submenu">
+                            <!-- Botón (no enlace): abre y cierra la lista de servicios (ver main.js) -->
+                            <button class="submenu-toggle" aria-expanded="false" aria-controls="submenu-servicios">Servicios</button>
+                            <ul id="submenu-servicios" role="list">
+                                <li><a href="local.html">Nuestro local</a></li>
+                                <li><a href="foodtruck.html" aria-current="page">Foodtruck</a></li>
+                                <li><a href="#">Catering</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="carta.html">Nuestra carta</a></li>
+                        <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="contenido">
+        <div id="main-wrapper">
+            <div id="content-01">
+                <nav class="migas" aria-label="Estás en">
+                    <ol role="list">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li>Servicios</li>
+                        <li aria-current="page">Foodtruck</li>
+                    </ol>
+                </nav>
+                <div id="mosaico-foodtruck">
+                    <img src="img/placeholder.svg" class="img-grande" alt="" width="1200" height="900" fetchpriority="high">
+                    <img src="img/placeholder.svg" alt="" width="1200" height="900">
+                    <img src="img/placeholder.svg" alt="" width="1200" height="900">
+                    <img src="img/placeholder.svg" class="img-larga" alt="" width="1200" height="900">
+                </div>
+            </div>
+            <div id="content-02">
+                <div id="foodtruck-texto">
+                    <p class="etiqueta">Foodtruck</p>
+                    <h1>Nuestro <em>foodtruck</em>, en tu evento</h1>
+                    <p class="intro">Llevamos el foodtruck a tu evento de dos formas: con nuestra cocina boliviana (salteñas, empanadas y refrescos hechos al momento) o equipado con todo lo necesario para que tu empresa cocine y venda su propia comida.</p>
+
+                    <h2>¿Nuestra comida o <em>la tuya</em>?</h2>
+                    <!-- El ✓ y la raya de cada fila los pone el CSS (.si y .no) -->
+                    <div class="opciones">
+                        <article class="opcion-tarjeta">
+                            <h3>Con nuestra comida</h3>
+                            <p class="opcion-desc">Vamos con el foodtruck y cocinamos para tus invitados.</p>
+                            <ul class="ticks" role="list">
+                                <li class="si">El foodtruck en tu evento</li>
+                                <li class="si">Cocina equipada y lista para usar</li>
+                                <li class="si">Montaje y recogida</li>
+                                <li class="si">Nuestra comida boliviana</li>
+                                <li class="si">Nuestro personal cocina y sirve</li>
+                                <li class="no"><span class="sr-only">No incluye: </span>Tu equipo cocina y vende</li>
+                            </ul>
+                            <p class="opcion-precio">Precio: consultar</p>
+                            <p class="presupuesto"><a href="#">Pedir con comida</a></p>
+                        </article>
+                        <article class="opcion-tarjeta">
+                            <h3>Foodtruck equipado</h3>
+                            <p class="opcion-desc">Con todo lo necesario para que tu empresa cocine y venda.</p>
+                            <ul class="ticks" role="list">
+                                <li class="si">El foodtruck en tu evento</li>
+                                <li class="si">Cocina equipada y lista para usar</li>
+                                <li class="si">Montaje y recogida</li>
+                                <li class="no"><span class="sr-only">No incluye: </span>Nuestra comida boliviana</li>
+                                <li class="no"><span class="sr-only">No incluye: </span>Nuestro personal cocina y sirve</li>
+                                <li class="si">Tu equipo cocina y vende</li>
+                            </ul>
+                            <p class="opcion-precio">Precio: consultar</p>
+                            <p class="presupuesto"><a href="#">Pedir el equipado</a></p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- DATOS DE EJEMPLO: pedir al cliente el espacio, la corriente, las raciones y la zona -->
+                <aside id="ficha" aria-labelledby="titulo-ficha">
+                    <h2 id="titulo-ficha">El foodtruck de un vistazo</h2>
+                    <dl>
+                        <div><dt>Espacio</dt><dd>x × x metros</dd></div>
+                        <div><dt>Corriente</dt><dd>Toma de 220&nbsp;V o generador</dd></div>
+                        <div><dt>Raciones (con comida)</dt><dd>x por hora</dd></div>
+                        <div><dt>Zona</dt><dd>Vallès Oriental y alrededores</dd></div>
+                        <div><dt>Precio con comida</dt><dd>Consultar</dd></div>
+                        <div><dt>Precio foodtruck equipado</dt><dd>Consultar</dd></div>
+                    </dl>
+                    <!-- Sin botón: ya lo tiene cada tarjeta de opción -->
+                    <p class="ficha-llamar">¿Dudas? Llámanos al <a href="tel:+34605470387">605 47 03 87</a></p>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <div class="aguayo" aria-hidden="true"></div>
+    <footer>
+        <div id="footer-wrapper">
+            <div id="footer-container-0">
+                <div id="sobre-nosotros">
+                    <p class="footer-marca" translate="no">Miriam Rose</p>
+                    <p>Empanadas y refrescos bolivianos con recetas de familia y horno propio.</p>
+                </div>
+                <div id="donde-estamos">
+                    <h2>Dónde estamos</h2>
+                    <address>Carrer Riera, 1<br>08420 Canovelles (Barcelona)</address>
+                    <dl class="horario">
+                        <dt>Lunes</dt>
+                        <dd><span>6:30–14:00</span></dd>
+                        <dt>Martes a viernes</dt>
+                        <dd><span>6:30–14:00</span> y <span>17:00–21:00</span></dd>
+                        <dt>Sábado y domingo</dt>
+                        <dd><span>6:30–13:30</span></dd>
+                    </dl>
+                </div>
+                <div id="contacto">
+                    <h2>Contacto</h2>
+                    <p>
+                        <a href="tel:+34605470387" class="con-icono"><img src="img/iconos/telefono.svg" alt="" width="18" height="18" loading="lazy">605 47 03 87</a><br>
+                        <a href="mailto:miriamrosecafeteria@gmail.com" class="con-icono"><img src="img/iconos/correo.svg" alt="" width="18" height="18" loading="lazy">miriamrosecafeteria@gmail.com</a><br>
+                        <a href="https://www.instagram.com/cafeteriamiriamrose/" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/instagram.svg" alt="Instagram:" width="18" height="18" loading="lazy">@cafeteriamiriamrose<span class="sr-only"> (se abre en otra pestaña)</span></a><br>
+                        <a href="https://www.tiktok.com/@cafeteriamiriamrose" target="_blank" rel="noopener" class="con-icono"><img src="img/iconos/tiktok.svg" alt="TikTok:" width="18" height="18" loading="lazy">@cafeteriamiriamrose<span class="sr-only"> (se abre en otra pestaña)</span></a>
+                    </p>
+                    <p class="presupuesto"><a href="#">Pide presupuesto</a></p>
+                </div>
+                <div id="mapa">
+                    <!-- Toda la columna es un solo enlace: la imagen y el texto llevan a Google Maps -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Cafeteria%20Miriam%20Rose%2C%20Carrer%20Riera%201%2C%20Canovelles" target="_blank" rel="noopener">
+                        <img src="img/mapa-provisional.svg" alt="Mapa de la zona de la cafetería" width="600" height="360" loading="lazy">
+                        <span>Cómo llegar <span aria-hidden="true">→</span><span class="sr-only"> (se abre en otra pestaña)</span></span>
+                    </a>
+                </div>
+            </div>
+            <div id="copyright-container">
+                <small>&copy; 2026 Cafetería <span translate="no">Miriam Rose</span></small>
+                <ul role="list">
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
