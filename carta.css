@@ -299,6 +299,44 @@
     font-style: italic;
     color: #5E554D;
 }
+/* Batidos (diseño 2, lo eligió el cliente el 27/10): un recuadro dentro de la hoja, como en una carta impresa,
+   con la foto arriba, los sabores en rejilla de 3 × 3 y la elección leche o agua */
+.producto.batidos{
+    margin-block: 6px;
+    padding: 18px 20px 16px;
+    border: 1.5px dashed #D9CBB5;
+}
+.batidos-foto{
+    display: block;
+    width: calc(100% + 40px);          /* de borde a borde del recuadro, sin el relleno */
+    max-width: none;                   /* reset.css limita las imágenes a max-width: 100% y no llegaría al borde derecho */
+    height: 170px;
+    margin: -18px -20px 16px;
+    object-fit: cover;
+}
+.sabores{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 16px;
+    margin-top: 12px;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+.batidos-eleccion{
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #E4DACB;
+    font-size: 14px;
+    color: #5E554D;
+}
+.batidos-eleccion strong{
+    font-weight: 600;
+    color: #2E2A26;
+    white-space: nowrap;               /* «con agua» no se parte en dos líneas */
+}
 .carta-aviso{
     margin-top: 40px;
     font-size: 13px;
@@ -462,5 +500,18 @@
     }
     .producto-nombre{
         font-size: 20px;
+    }
+    /* Batidos: menos relleno, la foto más baja y los sabores en 2 columnas */
+    .producto.batidos{
+        padding: 16px 16px 14px;
+    }
+    .batidos-foto{
+        width: calc(100% + 32px);
+        height: 150px;
+        margin: -16px -16px 14px;
+    }
+    .sabores{
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 18px;
     }
 }
