@@ -231,6 +231,10 @@
 .recomendados-grupo:not(:has(.destacado)){
     display: none;
 }
+/* Si el filtro elegido no tiene recomendados (Bocadillos, Dulces), la zona desaparece y no deja un hueco */
+#imprescindibles:not(:has(.recomendados-grupo:not([hidden]))){
+    display: none;
+}
 .producto{
     padding-block: 10px;
     break-inside: avoid;               /* un producto nunca se parte entre dos columnas */

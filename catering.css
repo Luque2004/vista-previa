@@ -1,0 +1,147 @@
+/* ===== PÁGINA DE CATERING (opción A, la eligió el cliente el 24/10, con la cabecera A1 del 27/10) =====
+   El header, el footer, .etiqueta, .intro y los botones vienen de style.css; las tarjetas, la galería y la franja
+   final (#opciones-wrapper, #galeria, #cta), de servicio.css. Aquí solo va lo propio de esta página */
+
+/* ===== CABECERA: el texto a la izquierda y la foto al lado (el cliente no quería la foto detrás del título) ===== */
+#catering-cabecera{
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    max-width: 1280px;                 /* alineada con el logo del header, como las tarjetas */
+    margin-inline: auto;
+    padding: 56px clamp(16px, 5vw, 64px) 32px;
+}
+#catering-cabecera>div{
+    flex: 1;
+    min-width: 0;                      /* sin esto, una palabra muy larga empujaría la foto fuera */
+}
+
+/* Separaciones como en el hero del local: etiqueta + título juntos · texto · botón aparte */
+#catering-cabecera h1{ margin-top: 14px; }
+#catering-cabecera .intro{ margin-top: 20px; }
+#catering-cabecera .presupuesto{ margin-top: 32px; }
+
+#catering-cabecera h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 5vw, 64px); /* de 1024 a 1280 px baja hasta 56: a 64 el título se partía en 3 líneas */
+    font-weight: 600;
+    line-height: 1.02;
+}
+#catering-cabecera h1 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+#catering-cabecera .presupuesto>a{
+    min-height: 50px;
+    padding-inline: 30px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+#catering-cabecera img{
+    flex: 1;
+    min-width: 0;
+    height: 420px;
+    object-fit: cover;                 /* la foto se recorta para llenar el hueco, sin deformarse */
+}
+
+/* ===== CONDICIONES: la antelación y el precio, en una fila debajo de las dos tarjetas ===== */
+.condiciones{
+    display: flex;
+    margin-top: 32px;
+    border-block: 1px solid #E4DACB;
+}
+.condicion{
+    flex: 1;
+    padding: 22px 24px;
+    text-align: center;
+}
+.condicion+.condicion{
+    border-left: 1px solid #E4DACB;    /* la raya entre las dos */
+}
+.condicion h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.condicion p{
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #5E554D;
+}
+
+/* ===== PANTALLAS GRANDES (desde 1920px): como en servicio.css, todo pasa a 1600px de ancho ===== */
+@media (min-width: 1920px){
+    #catering-cabecera{
+        max-width: 1600px;
+    }
+    #catering-cabecera h1{
+        font-size: 80px;
+    }
+    #catering-cabecera .presupuesto>a{
+        min-height: 58px;
+        padding-inline: 36px;
+        font-size: 15px;
+    }
+    #catering-cabecera img{
+        height: 520px;
+    }
+}
+
+/* ===== TABLET (hasta 1023px): la foto baja debajo del texto ===== */
+@media (max-width: 1023px){
+    #catering-cabecera{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 36px;
+        padding-top: 48px;
+    }
+    #catering-cabecera h1{
+        font-size: 56px;
+    }
+    #catering-cabecera img{
+        flex: none;
+        width: 100%;
+        height: 360px;
+    }
+}
+
+/* ===== MÓVIL (hasta 767px) ===== */
+@media (max-width: 767px){
+    #catering-cabecera{
+        gap: 28px;
+        padding-block: 36px 8px;
+    }
+    #catering-cabecera h1{
+        font-size: 40px;
+    }
+    #catering-cabecera .intro{
+        font-size: 16px;
+    }
+    /* Botón a todo el ancho: más fácil de pulsar con el dedo */
+    #catering-cabecera .presupuesto>a{
+        display: flex;
+        justify-content: center;
+        min-height: 52px;
+    }
+    #catering-cabecera img{
+        height: 240px;
+    }
+    /* Las condiciones, una debajo de otra */
+    .condiciones{
+        flex-direction: column;
+        margin-top: 24px;
+    }
+    .condicion{
+        padding: 18px 8px;
+    }
+    .condicion+.condicion{
+        border-left: 0;
+        border-top: 1px solid #E4DACB;
+    }
+    .condicion h3{
+        font-size: 24px;
+    }
+}

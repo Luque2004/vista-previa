@@ -1,4 +1,42 @@
 
+/* ===== FUENTES: servidas desde la propia web (carpeta fuentes/), no desde Google =====
+   Así cada visita no envía su IP a Google (RGPD) y la página no tiene que conectarse a otro servidor.
+   Son los mismos archivos que daba Google Fonts: fuentes variables (un archivo vale para varios grosores)
+   y solo con los caracteres latinos (unicode-range), que incluyen todo el español.
+   Licencia SIL Open Font License: se pueden alojar en la web. */
+@font-face{
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500 600;              /* un solo archivo para el 500 y el 600 */
+    font-display: swap;                /* mientras carga, el texto sale con la fuente de reserva en vez de quedarse en blanco */
+    src: url("fuentes/cormorant-garamond.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+    font-family: 'Cormorant Garamond';
+    font-style: italic;                /* la palabra en cursiva de los títulos */
+    font-weight: 500 600;
+    font-display: swap;
+    src: url("fuentes/cormorant-garamond-cursiva.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+    font-family: 'Pinyon Script';     /* solo el nombre: logo y cabecera de la carta */
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fuentes/pinyon-script.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400 600;              /* un solo archivo para el 400, el 500 y el 600 */
+    font-display: swap;
+    src: url("fuentes/work-sans.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* Curva de las animaciones: arranca rápido y frena suave (las de CSS por defecto son flojas) */
 :root{
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);

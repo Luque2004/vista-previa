@@ -7,9 +7,7 @@
     <meta name="theme-color" content="#FAF7F2">
     <meta name="color-scheme" content="only light">
     <title>Nuestra carta · Miriam Rose, Canovelles</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Pinyon+Script&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="La carta de Miriam Rose en Canovelles: salteñas, empanadas y cuñapés, bollería, pan, refrescos bolivianos y café, con recetas de familia.">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="servicio.css">
@@ -38,7 +36,7 @@
                             <ul id="submenu-servicios" role="list">
                                 <li><a href="local.html">Nuestro local</a></li>
                                 <li><a href="foodtruck.html">Foodtruck</a></li>
-                                <li><a href="#">Catering</a></li>
+                                <li><a href="catering.html">Catering</a></li>
                             </ul>
                         </li>
                         <li><a href="carta.html" aria-current="page">Nuestra carta</a></li>
@@ -78,10 +76,10 @@
                                 <img src="img/placeholder.svg" alt="" width="1200" height="900">
                                 <div class="destacado-texto">
                                     <div class="destacado-linea">
-                                        <h3>Cuñapé</h3>
-                                        <p class="precio">1,80 €</p>
+                                        <h3>Empanada de queso</h3>
+                                        <p class="precio">2,00 €</p>
                                     </div>
-                                    <p class="destacado-desc">Crujiente por fuera y tierno por dentro.</p>
+                                    <p class="destacado-desc">Frita, dorada y con queso fundido por dentro.</p>
                                 </div>
                             </article>
                             <article class="destacado">
@@ -209,9 +207,11 @@
                     <div class="filtros" role="group" aria-label="Filtrar la carta por sección" hidden>
                         <button type="button" data-filtro="todo" aria-pressed="true">Todo</button>
                         <button type="button" data-filtro="empanadas" aria-pressed="false">Empanadas</button>
+                        <button type="button" data-filtro="bocadillos" aria-pressed="false">Bocadillos</button>
                         <button type="button" data-filtro="bolleria" aria-pressed="false">Bollería</button>
                         <button type="button" data-filtro="pan" aria-pressed="false">Pan</button>
                         <button type="button" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
+                        <button type="button" data-filtro="dulces" aria-pressed="false">Dulces</button>
                     </div>
                     <p id="aviso-filtro" class="sr-only" aria-live="polite"></p>
 
@@ -273,17 +273,55 @@
                             </ul>
                         </section>
 
+                        <!-- Bocadillos de la pizarra del local (24/10): faltan los precios, pedírselos al cliente -->
+                        <section class="carta-seccion" data-categoria="bocadillos" aria-labelledby="titulo-bocadillos">
+                            <h3 id="titulo-bocadillos">Bocadillos</h3>
+                            <p class="carta-sub">Fríos y calientes</p>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Jamón ibérico</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Jamón dulce</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Lomo</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Lomo con queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Bacon</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Bacon con queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Fuet o salchichón</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Tortilla francesa</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Queso curado</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Vegetal</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                </li>
+                            </ul>
+                        </section>
+
                         <section class="carta-seccion" data-categoria="bolleria" aria-labelledby="titulo-bolleria">
                             <h3 id="titulo-bolleria">Bollería</h3>
                             <p class="carta-sub">Para acompañar el café</p>
                             <h4>Cruasanes</h4>
                             <ul class="productos" role="list">
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Cruasán bikini</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán bikini</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,10 €</span></p>
                                     <p class="producto-desc">Cruasán curvo con jamón dulce y queso, a la plancha.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Cruasán de jamón dulce y queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Cruasán de jamón dulce y queso</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
                                     <p class="producto-desc">Relleno de jamón dulce y queso.</p>
                                 </li>
                                 <li class="producto">
@@ -318,7 +356,7 @@
                             <h4>Magdalenas y galletas</h4>
                             <ul class="productos" role="list">
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Magdalena</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Magdalena</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,20 €</span></p>
                                     <p class="producto-desc">Esponjosa, para acompañar el café.</p>
                                 </li>
                                 <li class="producto">
@@ -353,16 +391,20 @@
                                     <p class="producto-desc">Pan de payés con cereales y semillas.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Integral</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Integral</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,20 €</span></p>
                                     <p class="producto-desc">Pan de harina integral.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Pan rallado casero</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,00 €/kg</span></p>
+                                    <p class="producto-desc">Hecho con nuestro pan. Se vende al peso.</p>
                                 </li>
                             </ul>
                         </section>
 
                         <section class="carta-seccion" data-categoria="bebidas" aria-labelledby="titulo-bebidas">
                             <h3 id="titulo-bebidas">Bebidas</h3>
-                            <p class="carta-sub">Refrescos bolivianos, zumos, café y cerveza</p>
-                            <h4>Bebidas bolivianas y de la casa</h4>
+                            <p class="carta-sub">Bebidas bolivianas, zumos, café, cerveza y vino</p>
+                            <h4>Bebidas bolivianas</h4>
                             <ul class="productos" role="list">
                                 <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Api</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,90 €</span></p>
@@ -373,6 +415,21 @@
                                     <p class="producto-desc">Refresco de melocotón seco y canela.</p>
                                 </li>
                                 <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Malta</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
+                                    <p class="producto-desc">Refresco con gas y sin alcohol, de cebada malteada.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Maltín</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,20 €</span></p>
+                                    <p class="producto-desc">Batido de malta con huevo.</p>
+                                </li>
+                            </ul>
+                            <h4>Zumos y batidos</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Zumo de naranja</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,00 €</span></p>
+                                    <p class="producto-desc">De naranja exprimida.</p>
+                                </li>
+                                <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Vitazen</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,25 €</span></p>
                                     <p class="producto-desc">Zumo de naranja con matcha.</p>
                                 </li>
@@ -381,30 +438,34 @@
                                     <p class="producto-desc">Fresquita, de limón.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Zumo de naranja</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">3,00 €</span></p>
-                                    <p class="producto-desc">De naranja exprimida.</p>
-                                </li>
-                                <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Batido</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,90 €</span></p>
-                                    <p class="producto-desc">Frío y cremoso: pregunta por los sabores.</p>
+                                    <p class="producto-desc">Hecho al momento con fruta fresca, con leche o con agua.</p>
                                 </li>
                             </ul>
                             <h4>Refrescos</h4>
                             <ul class="productos" role="list">
                                 <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Refrescos</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
-                                    <p class="producto-desc">Coca-Cola, Fanta, Nestea, Aquarius, malta, tónica Schweppes, Vichy y zumos Granini (naranja, melocotón y piña).</p>
+                                    <p class="producto-desc">Coca-Cola, Fanta, Nestea, Aquarius, Red Bull, tónica Schweppes, Vichy y zumos Granini (naranja, melocotón y piña).</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Cacaolat</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Cacaolat de vidrio</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,20 €</span></p>
                                     <p class="producto-desc">En botella de vidrio.</p>
                                 </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Cacaolat de plástico</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
+                                    <p class="producto-desc">En botella de plástico.</p>
+                                </li>
                             </ul>
-                            <h4>Cafés e infusiones</h4>
+                            <h4>Cafés, tés e infusiones</h4>
                             <ul class="productos" role="list">
                                 <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Café solo</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,40 €</span></p>
                                     <p class="producto-desc">Espresso, corto e intenso.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Café solo largo</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,45 €</span></p>
+                                    <p class="producto-desc">Espresso con más agua.</p>
                                 </li>
                                 <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Cortado</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,50 €</span></p>
@@ -415,12 +476,32 @@
                                     <p class="producto-desc">Mitad café, mitad leche caliente.</p>
                                 </li>
                                 <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Café con leche grande</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
+                                    <p class="producto-desc">En taza grande.</p>
+                                </li>
+                                <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Americano</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
                                     <p class="producto-desc">Café solo alargado con agua.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Capuchino</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Americano doble</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,50 €</span></p>
+                                    <p class="producto-desc">Con doble carga de café.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Capuchino</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,20 €</span></p>
                                     <p class="producto-desc">Café con leche espumosa.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Carajillo</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
+                                    <p class="producto-desc">Café con un chorrito de licor.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Trifásico</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,00 €</span></p>
+                                    <p class="producto-desc">Café con leche y un chorrito de licor.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">ColaCao</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
+                                    <p class="producto-desc">Leche con ColaCao.</p>
                                 </li>
                                 <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Vaso de leche</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
@@ -431,32 +512,130 @@
                                     <p class="producto-desc">Té verde matcha con leche.</p>
                                 </li>
                                 <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Té</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                    <p class="producto-desc">Negro, negro con especias, rojo (pu-erh) o verde con menta.</p>
+                                </li>
+                                <li class="producto">
                                     <p class="producto-linea"><span class="producto-nombre">Infusión</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
-                                    <p class="producto-desc">Pregunta por las que tenemos.</p>
+                                    <p class="producto-desc">Manzanilla, tila, menta poleo, jengibre con limón, frutos del bosque, frutos rojos con hibisco o mate cocido.</p>
                                 </li>
                             </ul>
                             <p class="carta-nota">También hay descafeinado (de máquina o de sobre) y leche sin lactosa, de avena, de soja y desnatada.</p>
                             <h4>Cervezas</h4>
                             <ul class="productos" role="list">
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Estrella Damm mediana</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Estrella Damm mediana</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
                                     <p class="producto-desc">Botellín de 33 cl.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Estrella Damm quinto</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Estrella Damm quinto</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
                                     <p class="producto-desc">Botellín de 20 cl.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Estrella Galicia</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Estrella Galicia</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,95 €</span></p>
                                     <p class="producto-desc">Cerveza rubia de Galicia.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">San Miguel</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">San Miguel</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
                                     <p class="producto-desc">Cerveza rubia clásica.</p>
                                 </li>
                                 <li class="producto">
-                                    <p class="producto-linea"><span class="producto-nombre">Voll-Damm</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">x,xx €</span></p>
+                                    <p class="producto-linea"><span class="producto-nombre">Voll-Damm</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
                                     <p class="producto-desc">Doble malta, con más cuerpo.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Damm Lemon</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
+                                    <p class="producto-desc">Cerveza con limón.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Free Damm</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
+                                    <p class="producto-desc">Sin alcohol (0,0 %).</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Free Damm limón</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,90 €</span></p>
+                                    <p class="producto-desc">Sin alcohol (0,0 %) y con limón.</p>
+                                </li>
+                            </ul>
+                            <h4>Vinos y licores</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Copa de vino tinto</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,20 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Copa de vino blanco</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,20 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Copa de licor</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,20 €</span></p>
+                                    <p class="producto-desc">JB, Ballantine's, Brugal, ron Puyol, Terry, Soberano, Magno, Veterano, Licor 43, Baileys, Frangelico, Kina y Ponche Caballero.</p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Copa de orujo o anís</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">2,10 €</span></p>
+                                    <p class="producto-desc">Orujo de hierbas o Anís del Mono.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- Dulces (24/10): la lista y los precios son del cliente -->
+                        <section class="carta-seccion" data-categoria="dulces" aria-labelledby="titulo-dulces">
+                            <h3 id="titulo-dulces">Dulces</h3>
+                            <p class="carta-sub">Chuches de aquí, latinas y traídas de Bolivia</p>
+                            <h4>De aquí</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Kojak relleno de chicle</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Piruleta</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Lollipop</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Kinder Joy</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,80 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Lacasitos</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,00 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Bolsa de chuches Fiesta</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,20 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Pectol</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,20 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Chicles Orbit</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,30 €</span></p>
+                                    <p class="producto-desc">El precio es por dos paquetes.</p>
+                                </li>
+                            </ul>
+                            <h4>Latinas</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Bon Bon Bum</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Bon o Bon</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Platanitos y yuquitas</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,50 €</span></p>
+                                    <p class="producto-desc">Chips de plátano y de yuca.</p>
+                                </li>
+                            </ul>
+                            <h4>Traídas de Bolivia</h4>
+                            <ul class="productos" role="list">
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Sapito</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">1,00 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Gomita de planetas</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Mi&amp;ni Beans</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Chicles WhatsApp</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,50 €</span></p>
+                                </li>
+                                <li class="producto">
+                                    <p class="producto-linea"><span class="producto-nombre">Caramelo duro</span><span class="linea-puntos" aria-hidden="true"></span><span class="precio">0,70 €</span></p>
                                 </li>
                             </ul>
                         </section>
@@ -475,7 +654,7 @@
             </div>
             <div>
                 <ul id="cta-botones">
-                    <li class="llamar"><a href="#">Ver catering</a></li>
+                    <li class="llamar"><a href="catering.html">Ver catering</a></li>
                     <li class="presupuesto"><a href="#">Pide presupuesto</a></li>
                 </ul>
             </div>
