@@ -96,7 +96,7 @@
 /* Dos campos en la misma fila */
 .fila{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));   /* minmax(0, …): con 1fr, un campo con ancho mínimo propio (la fecha en el iPhone) ensanchaba la columna y se salía */
     gap: 16px;
 }
 /* Teléfono: el prefijo del país y el número, uno al lado del otro */
@@ -119,10 +119,14 @@
 /* La fecha en iPhone y iPad: Safari la dibuja a su manera (centrada, con fondo gris y, vacía, sin altura).
    @supports (-webkit-touch-callout: none) solo es cierto en el Safari de iOS: en los demás navegadores no cambia nada */
 @supports (-webkit-touch-callout: none){
-    .formulario input[type="date"]{
+    /* Mismo selector que las cajas de texto, con [type="date"] al final: si no, pesa menos y no se aplica el relleno */
+    .formulario input:not([type="radio"]):not([type="checkbox"])[type="date"]{
         -webkit-appearance: none;
         appearance: none;              /* sin su aspecto propio, toma el de los demás campos */
         min-width: 0;                  /* Safari le da un ancho mínimo que podía salirse de la columna */
+        padding-right: 44px;           /* sitio para el icono */
+        /* Safari en el iPhone no dibuja el calendario (Chrome y Android sí): este es como los iconos del footer */
+        background: #FFFFFF url("img/iconos/calendario.svg") no-repeat right 14px center;
     }
     .formulario input[type="date"]::-webkit-date-and-time-value{
         min-height: 1.5em;             /* vacía, Safari la dejaba sin altura */
@@ -295,7 +299,7 @@
     /* Un campo debajo de otro, y el prefijo encima del número */
     .fila,
     .telefono-prefijo{
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
     /* Botones a todo el ancho: más fáciles de pulsar con el dedo */
     .boton-enviar{
