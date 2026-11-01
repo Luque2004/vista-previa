@@ -1,0 +1,89 @@
+/* ===== PÁGINAS LEGALES (aviso legal y privacidad) =====
+   El header y el footer vienen de style.css. Aquí solo va el texto: una columna estrecha para que se lea bien */
+
+/* ===== TEXTO ===== */
+.legal{
+    max-width: 760px;                  /* unas 75 letras por línea: con renglones más largos cuesta no perderse */
+    margin-inline: auto;
+    padding: 56px clamp(16px, 5vw, 64px) 80px;
+}
+.legal h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.05;
+}
+.legal-fecha{
+    margin-top: 12px;
+    font-size: 14px;
+    color: #5E554D;
+}
+.legal h2{
+    margin-top: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+.legal p,
+.legal ul{
+    margin-top: 12px;
+    line-height: 1.7;
+}
+.legal ul{
+    padding-left: 20px;                /* las viñetas dentro de la columna, no colgando fuera */
+}
+.legal li+li{
+    margin-top: 6px;
+}
+.legal a{
+    color: #A3542E;
+    text-underline-offset: 3px;
+}
+
+/* ===== DATOS DEL TITULAR: el nombre del dato a la izquierda y el dato a la derecha ===== */
+.legal-datos{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 24px;
+    margin-top: 16px;
+    padding: 20px 24px;
+    background-color: #F1EBE1;         /* el arena de las tarjetas */
+}
+.legal-datos dt{
+    font-weight: 600;
+}
+.legal-datos dd{
+    min-width: 0;
+    overflow-wrap: anywhere;           /* el correo es una sola palabra muy larga: sin esto, en el móvil se sale */
+}
+
+/* ===== HOVER: solo con ratón o trackpad ===== */
+@media (hover: hover) and (pointer: fine){
+    .legal a:hover{
+        color: #2E2A26;
+    }
+}
+
+/* ===== MÓVIL (hasta 767px) ===== */
+@media (max-width: 767px){
+    .legal{
+        padding-block: 36px 56px;
+    }
+    .legal h1{
+        font-size: 40px;
+    }
+    .legal h2{
+        margin-top: 32px;
+        font-size: 24px;
+    }
+    /* Los datos, uno debajo de otro: el nombre del dato encima de su valor */
+    .legal-datos{
+        grid-template-columns: 1fr;
+        gap: 2px;
+        padding: 16px;
+    }
+    .legal-datos dd+dt{
+        margin-top: 10px;
+    }
+}

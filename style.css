@@ -178,6 +178,11 @@ header{
     text-decoration: underline;
     text-underline-offset: 6px;
 }
+/* Menos el botón «Pide presupuesto»: en su propia página se queda igual (el texto teja no se vería sobre su fondo teja) */
+#menu .presupuesto>a[aria-current="page"]{
+    color: #FFFFFF;
+    text-decoration: none;
+}
 
 /* Enlaces del menú: al pasar el ratón el color cambia suave */
 #menu li:not(.presupuesto)>a,

@@ -1,0 +1,301 @@
+/* ===== PÁGINA «PIDE PRESUPUESTO» (opción C, 31/10: el formulario y, al lado, WhatsApp; falta que la confirme el cliente) =====
+   El header, el footer, .intro, .sr-only y el botón .presupuesto vienen de style.css. Aquí solo va lo propio de esta página */
+
+/* ===== CABECERA DE LA PÁGINA ===== */
+#presupuesto-wrapper{
+    max-width: 1280px;                 /* alineado con el logo del header */
+    margin-inline: auto;
+    padding: 56px clamp(16px, 5vw, 64px) 80px;
+}
+.presupuesto-intro h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1.02;
+}
+.presupuesto-intro h1 em{
+    font-style: italic;
+    font-weight: 500;
+    color: #A3542E;
+}
+.presupuesto-intro .intro{
+    max-width: 640px;
+    margin-top: 16px;
+}
+/* El formulario y, al lado, el recuadro de WhatsApp */
+.presupuesto-cuerpo{
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+    margin-top: 40px;
+}
+
+/* ===== FORMULARIO ===== */
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 36px;
+    background-color: #F1EBE1;         /* el arena de las tarjetas */
+}
+.formulario fieldset{
+    min-width: 0;                      /* por defecto un fieldset no encoge y en el móvil podría salirse */
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.campo>label,
+.campo legend{
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+.campo legend{
+    margin-bottom: 7px;                /* el legend no respeta el gap del flex */
+}
+.opcional{
+    font-weight: 400;
+    color: #5E554D;
+}
+/* Cajas de texto: altas para el dedo y con letra de 16 px (con menos, el iPhone hace zoom al escribir) */
+.formulario input:not([type="radio"]):not([type="checkbox"]),
+.formulario textarea{
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    font: inherit;
+    font-size: 16px;
+    color: #2E2A26;
+    background-color: #FFFFFF;
+    border: 1px solid #D9CBB5;
+    border-radius: 0;
+}
+.formulario textarea{
+    min-height: 112px;
+    padding-block: 12px;
+    resize: vertical;
+}
+.formulario ::placeholder{
+    color: #786E65;                    /* gris claro, pero con contraste suficiente para leerse */
+}
+/* Campo mal rellenado: borde teja, pero solo después de que la persona lo haya tocado o haya intentado enviar
+   (:user-invalid; con :invalid saldría marcado nada más abrir la página, porque los obligatorios empiezan vacíos) */
+.formulario input:not([type="radio"]):not([type="checkbox"]):user-invalid,   /* mismo selector que el borde normal: si no, pesa menos y no se aplica */
+.formulario textarea:user-invalid{
+    border-color: #A3542E;
+}
+.chips:has(input:user-invalid) .chip{
+    border-color: #A3542E;
+}
+/* Dos campos en la misma fila */
+.fila{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+/* Teléfono: el prefijo del país y el número, uno al lado del otro */
+.telefono-prefijo{
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 8px;
+}
+.formulario select{
+    width: 100%;
+    min-height: 48px;
+    padding: 0 10px;
+    font: inherit;
+    font-size: 16px;                   /* como las cajas de texto: con menos, el iPhone hace zoom */
+    color: #2E2A26;
+    background-color: #FFFFFF;
+    border: 1px solid #D9CBB5;
+    border-radius: 0;
+}
+/* Botones de elegir: el radio no se ve (sr-only) y su etiqueta hace de botón */
+.chips{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.chip{
+    position: relative;                /* el radio escondido queda dentro: el aviso de «elige una opción» sale junto a los botones */
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 18px;
+    font-size: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #D9CBB5;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+.chip:has(input:checked){
+    color: #FFFFFF;
+    background-color: #2F4A6B;
+    border-color: #2F4A6B;
+}
+/* El radio está escondido: el contorno del teclado lo lleva su etiqueta */
+.chip:has(input:focus-visible){
+    outline: 2px solid #2F4A6B;
+    outline-offset: 3px;
+}
+/* Lo del catering (cómo lo quieren y la semana de antelación) solo sale si está marcado Catering */
+.formulario:not(:has([name="servicio"][value="catering"]:checked)) .solo-catering{
+    display: none;
+}
+.ayuda{
+    font-size: 13px;
+    color: #5E554D;
+}
+.casilla{
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+.casilla input{
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 1px 0 0;
+    accent-color: #2F4A6B;
+}
+.formulario a{
+    color: #A3542E;
+    text-underline-offset: 3px;
+}
+.boton-enviar{
+    align-self: flex-start;
+    min-height: 50px;
+    padding-inline: 30px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background-color: #A3542E;
+    border: 0;
+    transition: background-color 150ms ease, transform 160ms var(--ease-out);
+}
+/* Al pulsarlo se hunde un poco, como los otros botones */
+.boton-enviar:active{
+    transform: scale(0.97);
+}
+/* El texto corto de privacidad que tiene que ir junto al formulario (RGPD) */
+.capa{
+    font-size: 13px;
+    line-height: 1.55;
+    color: #5E554D;
+}
+
+/* ===== AL LADO: WhatsApp, teléfono y correo ===== */
+.contacto-directo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 32px;
+    border: 1px solid #E4DACB;
+}
+.contacto-directo h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.contacto-directo p{
+    line-height: 1.6;
+    color: #5E554D;
+}
+.contacto-directo .presupuesto>a{
+    min-height: 50px;
+    padding-inline: 26px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+.contacto-directo p:not(.presupuesto) a{
+    color: #A3542E;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;           /* el correo es una sola palabra muy larga: sin esto, en el móvil se sale */
+}
+
+/* ===== HOVER: solo con ratón o trackpad ===== */
+@media (hover: hover) and (pointer: fine){
+    .chip:hover{
+        border-color: #2F4A6B;
+    }
+    .boton-enviar:hover{
+        background-color: #8C4526;     /* teja más oscuro, como los otros botones */
+    }
+    .formulario a:hover,
+    .contacto-directo p:not(.presupuesto) a:hover{
+        color: #2E2A26;
+    }
+}
+
+/* ===== PANTALLAS GRANDES (desde 1920px) ===== */
+@media (min-width: 1920px){
+    #presupuesto-wrapper{
+        max-width: 1600px;
+    }
+    .presupuesto-intro h1{
+        font-size: 80px;
+    }
+}
+
+/* ===== TABLET (hasta 1023px): el recuadro de WhatsApp baja debajo del formulario ===== */
+@media (max-width: 1023px){
+    .presupuesto-cuerpo{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== MÓVIL (hasta 767px) ===== */
+@media (max-width: 767px){
+    #presupuesto-wrapper{
+        padding-block: 36px 56px;
+    }
+    .presupuesto-intro h1{
+        font-size: 40px;
+    }
+    .presupuesto-intro .intro{
+        font-size: 16px;
+    }
+    .presupuesto-cuerpo{
+        gap: 24px;
+        margin-top: 28px;
+    }
+    .formulario{
+        padding: 20px;
+    }
+    /* Un campo debajo de otro, y el prefijo encima del número */
+    .fila,
+    .telefono-prefijo{
+        grid-template-columns: 1fr;
+    }
+    /* Botones a todo el ancho: más fáciles de pulsar con el dedo */
+    .boton-enviar{
+        align-self: stretch;
+    }
+    .contacto-directo{
+        padding: 22px;
+    }
+    .contacto-directo .presupuesto{
+        align-self: stretch;
+    }
+    .contacto-directo .presupuesto>a{
+        display: flex;
+        justify-content: center;
+    }
+}
