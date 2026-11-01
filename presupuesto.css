@@ -116,6 +116,19 @@
     border: 1px solid #D9CBB5;
     border-radius: 0;
 }
+/* La fecha en iPhone y iPad: Safari la dibuja a su manera (centrada, con fondo gris y, vacía, sin altura).
+   @supports (-webkit-touch-callout: none) solo es cierto en el Safari de iOS: en los demás navegadores no cambia nada */
+@supports (-webkit-touch-callout: none){
+    .formulario input[type="date"]{
+        -webkit-appearance: none;
+        appearance: none;              /* sin su aspecto propio, toma el de los demás campos */
+        min-width: 0;                  /* Safari le da un ancho mínimo que podía salirse de la columna */
+    }
+    .formulario input[type="date"]::-webkit-date-and-time-value{
+        min-height: 1.5em;             /* vacía, Safari la dejaba sin altura */
+        text-align: left;              /* Safari la centra */
+    }
+}
 /* Botones de elegir: el radio no se ve (sr-only) y su etiqueta hace de botón */
 .chips{
     display: flex;
