@@ -209,6 +209,15 @@
 .boton-enviar:active{
     transform: scale(0.97);
 }
+/* El aviso de después de pulsar Enviar (lo pone presupuesto.js): añil mientras se envía o si ha ido bien, teja si ha fallado */
+.formulario-estado{
+    font-size: 15px;
+    font-weight: 600;
+    color: #2F4A6B;
+}
+.formulario-estado.error{
+    color: #A3542E;                    /* 4,6:1 sobre el arena: se lee bien */
+}
 /* El texto corto de privacidad que tiene que ir junto al formulario (RGPD) */
 .capa{
     font-size: 13px;

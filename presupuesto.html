@@ -51,9 +51,15 @@
                 <h1>Pide tu <em>presupuesto</em></h1>
                 <p class="intro">Cuéntanos qué necesitas y te preparamos el presupuesto sin compromiso.</p>
             </div>
-            <!-- Opción C (31/10): el formulario y, al lado, WhatsApp. Falta que la confirme el cliente y conectar el formulario a un servicio de envío -->
+            <!-- Opción C (31/10): el formulario y, al lado, WhatsApp. Falta que la confirme el cliente -->
             <div class="presupuesto-cuerpo">
-                <form class="formulario" method="post">
+                <form class="formulario" method="post" action="https://api.web3forms.com/submit">
+                    <!-- Web3Forms recibe el formulario y lo manda por correo. Clave de prueba (tu correo): cambiarla por la del cliente antes de publicar -->
+                    <input type="hidden" name="access_key" value="9fc84d15-0339-4e19-8e3e-d4820aa764f5">
+                    <input type="hidden" name="subject" value="Nueva petición de presupuesto desde la web">
+                    <input type="hidden" name="from_name" value="Web Miriam Rose">
+                    <!-- Campo trampa: los bots marcan todas las casillas y una persona no lo ve nunca; si llega marcado, Web3Forms descarta el envío -->
+                    <input type="checkbox" name="botcheck" style="display: none;">
                     <fieldset class="campo">
                         <legend>¿Qué necesitas?</legend>
                         <div class="chips">
@@ -344,17 +350,20 @@
                     </div>
                     <div class="campo">
                         <label for="correo">Correo <span class="opcional">(opcional)</span></label>
-                        <input type="email" id="correo" name="correo" autocomplete="email">
+                        <!-- name="email" (no "correo"): Web3Forms lo usa como «Responder a» -->
+                        <input type="email" id="correo" name="email" autocomplete="email">
                     </div>
                     <div class="campo">
                         <label for="mensaje">Algo más que quieras contarnos <span class="opcional">(opcional)</span></label>
                         <textarea id="mensaje" name="mensaje" placeholder="El tipo de evento, lo que os gustaría comer…"></textarea>
                     </div>
                     <label class="casilla">
-                        <input type="checkbox" name="privacidad" required>
+                        <input type="checkbox" name="privacidad" value="acepta" required>
                         <span>He leído y acepto la <a href="#">política de privacidad</a>.</span>
                     </label>
                     <button type="submit" class="boton-enviar">Enviar petición</button>
+                    <!-- Aviso del envío: lo rellena presupuesto.js. role="status": el lector de pantalla lo lee al cambiar. hidden: escondido hasta el primer aviso, para no dejar hueco -->
+                    <p class="formulario-estado" role="status" hidden></p>
                     <p class="capa">Responsable: [titular]. Usaremos tus datos solo para contestarte y prepararte el presupuesto. Puedes ver, corregir o borrar tus datos cuando quieras: lo explicamos en la <a href="#">política de privacidad</a>.</p>
                 </form>
                 <aside class="contacto-directo" aria-labelledby="titulo-whatsapp">
