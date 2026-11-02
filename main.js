@@ -21,6 +21,11 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Al pulsar un enlace del menú, el menú se cierra: «Cómo lo hacemos» baja a una sección de la portada sin cambiar de página
+document.querySelector('#menu').addEventListener('click', (e) => {
+    if (e.target.closest('a')) ponerMenu(false);
+});
+
 // ===== PUNTOS DEL CARRUSEL (móvil) =====
 const mosaico = document.querySelector('#mosaico');
 
