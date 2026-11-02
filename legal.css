@@ -32,6 +32,7 @@
 }
 .legal ul{
     padding-left: 20px;                /* las viñetas dentro de la columna, no colgando fuera */
+    list-style-type: disc;             /* style.css se las quita a todas las listas (regla de ul): aquí vuelven */
 }
 .legal li+li{
     margin-top: 6px;
